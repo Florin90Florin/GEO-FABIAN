@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#03120d">
+    <title>Restaurante & Lounge | Green Violin – Geo Fabian</title>
+    <meta name="description" content="Momente de muzică live cu Geo Fabian – Green Violin pentru restaurante și lounge-uri.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="restaurants-lounge.css">
+</head>
+<body class="wedding-page">
+    <main class="site-shell">
+        <section class="hero wedding-hero" id="home">
+            <header class="brand">
+                <a href="index.html" class="brand-link" aria-label="Green Violin - Acasă">
+                    <span class="brand-name">Geo Fabian</span>
+                    <span class="brand-subtitle">GREEN VIOLIN</span>
+                </a>
+            </header>
+
+            <nav class="side-navigation" aria-label="Navigare principală">
+                <a href="index.html" class="nav-link home-link"><span class="nav-number">00</span><span>Acasă</span></a>
+                <a href="#home" class="nav-link active"><span class="nav-number">01</span><span>Restaurants & Lounge</span></a>
+                <a href="#solicitare" class="nav-link"><span class="nav-number">02</span><span>Rezervare</span></a>
+            </nav>
+
+            <div class="hero-artist">
+                <img src="images/geo-fabian-hero.png" alt="Geo Fabian interpretând la vioara verde" class="hero-image">
+            </div>
+
+            <div class="hero-copy">
+                <p class="hero-eyebrow">GREEN VIOLIN · LIVE LOUNGE EXPERIENCE</p>
+                <h1>Live music<br>for special<br>places</h1>
+                <p class="hero-signature">An atmosphere worth remembering.</p>
+                <a href="#solicitare" class="showreel-button"><span class="play-icon" aria-hidden="true">↘</span><span>Let's collaborate</span></a>
+            </div>
+        </section>
+
+        <section class="wedding-intro wedding-section" id="momente">
+            <div class="wedding-intro-heading">
+                <p class="section-eyebrow">A DISTINCTIVE LIVE SOUND</p>
+                <h2>Muzică live.<br><em>Atmosferă memorabilă.</em></h2>
+            </div>
+            <p class="wedding-intro-copy">Green Violin completează experiența restaurantelor și lounge-urilor cu muzică live, într-un stil elegant și distinct.</p>
+        </section>
+
+        <section class="wedding-booking wedding-section" id="solicitare">
+            <div>
+                <p class="section-eyebrow">LET'S COLLABORATE</p>
+                <h2>Solicită o<br><em>ofertă.</em></h2>
+                <p class="booking-copy">Discutăm despre locație, program și formula muzicală potrivită spațiului dumneavoastră.</p>
+            </div>
+            <div class="booking-panel">
+                <p class="booking-panel-title">DETALII EVENIMENT</p>
+                <p class="booking-form-intro">Completează data sau perioada și câteva detalii. Mesajul se va deschide în WhatsApp.</p>
+
+                <form class="wedding-request-form" id="loungeRequestForm">
+                    <label for="loungeDate">Data / perioada dorită</label>
+                    <input type="date" id="loungeDate" name="eventDate" required>
+
+                    <label for="loungeDetails">Locație și detalii</label>
+                    <textarea id="loungeDetails" name="details" rows="4"
+                        placeholder="Numele locației, orașul, programul dorit sau tipul colaborării..." required></textarea>
+
+                    <button class="booking-cta" type="submit">
+                        Trimite solicitarea pe WhatsApp <span>↗</span>
+                    </button>
+                </form>
+                <span class="booking-note">WhatsApp: 07XXXXXX</span>
+            </div>
+        </section>
+
+        <footer class="site-footer wedding-footer">
+            <p><a href="index.html">← Geo Fabian — GREEN VIOLIN</a></p>
+            <p>Live Music. Real Emotions.</p>
+        </footer>
+    </main>
+
+    <script>
+        (() => {
+            const form = document.getElementById("loungeRequestForm");
+            const dateInput = document.getElementById("loungeDate");
+
+            // Înlocuiți X-urile cu numărul real înainte de publicare.
+            // Format internațional: 40 urmat de numărul fără primul 0.
+            const whatsappNumber = "407XXXXXX";
+
+            const today = new Date();
+            const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+                .toISOString().split("T")[0];
+            dateInput.min = localToday;
+
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                if (!form.reportValidity()) return;
+
+                const selectedDate = dateInput.value;
+                const [year, month, day] = selectedDate.split("-");
+                const formattedDate = `${day}.${month}.${year}`;
+                const details = document.getElementById("loungeDetails").value.trim();
+
+                const message = [
+                    "Bună! Doresc o ofertă Green Violin pentru colaborare restaurant sau lounge.",
+                    `Data / perioada dorită: ${formattedDate}`,
+                    `Locație și detalii: ${details}`
+                ].join("\\n");
+
+                const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                window.open(url, "_blank", "noopener,noreferrer");
+            });
+        })();
+    </script>
+\n</body>
+</html>

@@ -1,0 +1,152 @@
+/* WEDDINGS PAGE — additions only; shared visual system remains in style.css */
+.wedding-page { min-width: 320px; }
+.wedding-page .site-shell { width: min(calc(100% - 44px), var(--shell-width)); }
+.wedding-hero { min-height: 440px; margin-bottom: 30px; }
+.wedding-hero .hero-copy { grid-column: 3; }
+.wedding-hero .hero-copy h1 { font-size: clamp(38px, 3.7vw, 56px); }
+.wedding-page .home-link .nav-number { border-color: var(--emerald); color: var(--emerald-bright); box-shadow: 0 0 12px rgba(0,217,149,.18); }
+.wedding-section { position: relative; z-index: 2; margin: 0 0 54px; }
+.wedding-intro { display: grid; grid-template-columns: 1.1fr .9fr; align-items: end; gap: 42px; padding: 30px 3.5% 35px; border-top: 1px solid rgba(232,203,121,.25); border-bottom: 1px solid rgba(232,203,121,.18); }
+.wedding-intro-heading h2, .wedding-section-heading h2, .wedding-booking h2 { color: var(--white); font: 500 clamp(30px, 3.3vw, 47px)/.98 'Cormorant Garamond', serif; text-transform: uppercase; }
+.wedding-intro-heading h2 em, .wedding-section-heading h2 em, .wedding-booking h2 em { color: var(--gold-light); font-weight: 400; }
+.wedding-intro-copy { max-width: 520px; color: #c4cbc4; font-size: 12px; line-height: 1.9; }
+.wedding-moments { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.wedding-moment-card { position: relative; min-height: 205px; padding: 25px 25px 24px; overflow: hidden; border: 1px solid rgba(0,217,149,.35); background: linear-gradient(145deg,rgba(7,35,22,.88),rgba(1,7,4,.94)); clip-path: polygon(0 0,96% 0,100% 8%,96% 100%,4% 100%,0 92%); }
+.wedding-moment-card::after { content:""; position:absolute; width:180px; height:180px; right:-90px; top:-100px; border:1px solid rgba(232,203,121,.25); border-radius:50%; box-shadow:0 0 35px rgba(0,217,149,.08); pointer-events:none; }
+.moment-index,.package-kicker,.package-number { color:var(--emerald-bright); font-size:8px; letter-spacing:2.3px; }
+.wedding-moment-card h3 { margin-top:27px; color:var(--gold-light); font:500 29px/.95 'Cormorant Garamond',serif; text-transform:uppercase; }
+.wedding-moment-card p { max-width:290px; margin-top:12px; color:#b8c4ba; font-size:10px; line-height:1.7; }
+.wedding-section-heading { max-width:650px; margin-bottom:24px; }
+.wedding-section-heading>p:last-child { max-width:520px; margin-top:15px; color:#b8c4ba; font-size:11px; line-height:1.8; }
+.package-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.package-card { position:relative; display:flex; flex-direction:column; min-height:270px; padding:25px 24px 22px; border:1px solid rgba(232,203,121,.3); background:linear-gradient(155deg,rgba(12,36,24,.92),rgba(2,8,5,.97) 78%); transition:border-color .35s ease,box-shadow .35s ease; }
+.package-card:hover { border-color:rgba(0,217,149,.75); box-shadow:0 0 24px rgba(0,217,149,.09); }
+.package-featured { border-color:rgba(0,217,149,.65); background:radial-gradient(ellipse at 50% 0,rgba(0,217,149,.13),transparent 55%),linear-gradient(155deg,rgba(9,39,25,.96),rgba(2,8,5,.98) 78%); }
+.package-number { position:absolute; top:22px; right:22px; color:rgba(232,203,121,.65); }
+.package-card h3 { margin-top:25px; color:var(--white); font:500 31px/.92 'Cormorant Garamond',serif; text-transform:uppercase; }
+.package-description { max-width:280px; margin-top:16px; color:#b8c4ba; font-size:10px; line-height:1.75; }
+.package-link { display:flex; justify-content:space-between; align-items:center; max-width:180px; margin-top:auto; padding-top:25px; color:var(--gold-light); font-size:9px; letter-spacing:1.3px; text-transform:uppercase; }
+.package-link span { font-size:17px; }
+.wedding-gallery { padding-top:8px; }
+.gallery-heading { margin-bottom:20px; }
+.wedding-gallery-grid { display:grid; grid-template-columns:1.35fr .65fr; gap:12px; height:280px; }
+.wedding-gallery-main,.wedding-gallery-side img { min-width:0; overflow:hidden; border:1px solid rgba(232,203,121,.35); background:#06150e; }
+.wedding-gallery-main img,.wedding-gallery-side img { width:100%; height:100%; object-fit:cover; opacity:.88; transition:transform .6s ease,opacity .4s ease; }
+.wedding-gallery-main:hover img,.wedding-gallery-side img:hover { transform:scale(1.035); opacity:1; }
+.wedding-gallery-side { display:grid; grid-template-rows:1fr 1fr; gap:12px; min-height:0; }
+.wedding-booking { display:grid; grid-template-columns:1fr .85fr; gap:45px; align-items:center; padding:34px 4%; border:1px solid rgba(232,203,121,.28); background:radial-gradient(ellipse at 0 50%,rgba(0,217,149,.10),transparent 55%),rgba(2,10,6,.78); }
+.booking-copy { max-width:450px; margin-top:17px; color:#bac5bc; font-size:11px; line-height:1.8; }
+.booking-panel { padding:24px; border-left:1px solid rgba(0,217,149,.45); }
+.booking-panel-title { color:var(--emerald-bright); font-size:9px; letter-spacing:2px; }
+.booking-panel>p:nth-child(2) { margin-top:13px; color:#bac5bc; font-size:11px; line-height:1.8; }
+.booking-cta { display:flex; justify-content:space-between; align-items:center; max-width:260px; margin-top:22px; padding:12px 16px; border:1px solid var(--gold); border-radius:30px; color:var(--gold-light); font-size:9px; letter-spacing:1.5px; text-transform:uppercase; }
+.booking-cta span { font-size:17px; }
+.booking-note { display:block; margin-top:12px; color:#7f9185; font-size:9px; line-height:1.5; }
+.wedding-footer a:hover { color:var(--gold-light); }
+@media (max-width: 900px) {
+  .wedding-page .site-shell { width:calc(100% - 24px); padding:20px 16px 42px; }
+  .wedding-hero { grid-template-columns:135px minmax(0,1fr) 205px; min-height:390px; }
+  .wedding-hero .hero-artist { left:105px; right:175px; }
+  .wedding-hero .hero-copy { transform:translateX(-22px); }
+  .wedding-intro { gap:24px; }
+  .wedding-gallery-grid { height:230px; }
+}
+@media (max-width: 680px) {
+  .wedding-page .site-shell { width:calc(100% - 14px); margin:7px auto; padding:18px 14px 35px; border-radius:20px; }
+  .wedding-hero { display:flex; flex-direction:column; align-items:stretch; min-height:610px; padding-top:92px; margin-bottom:24px; }
+  .wedding-hero .brand { left:10px; }
+  .wedding-hero .brand-name { font-size:52px; }
+  .wedding-hero .side-navigation { display:grid; grid-template-columns:repeat(3,1fr); gap:7px 4px; padding:0; margin-bottom:18px; }
+  .wedding-hero .nav-link { width:100%; grid-template-columns:23px 1fr; gap:5px; font-size:8px; letter-spacing:.7px; }
+  .wedding-hero .nav-number { width:21px; height:21px; font-size:8px; }
+  .wedding-hero .hero-artist { top:150px; left:0; right:0; bottom:0; opacity:.78; }
+  .wedding-hero .hero-copy { align-self:flex-end; width:75%; margin-top:auto; padding:28px 0 30px; transform:none; text-align:right; }
+  .wedding-hero .hero-copy h1 { font-size:clamp(36px,10vw,49px); }
+  .wedding-hero .hero-eyebrow { font-size:7px; letter-spacing:1.7px; }
+  .wedding-hero .hero-signature { font-size:32px; }
+  .wedding-hero .showreel-button { margin-top:18px; }
+  .wedding-hero .scroll-indicator { top:auto; right:4px; bottom:20px; }
+  .wedding-intro,.wedding-booking { grid-template-columns:1fr; gap:20px; padding:24px 4%; }
+  .wedding-moments,.package-grid { grid-template-columns:1fr; }
+  .wedding-moment-card { min-height:175px; }
+  .package-card { min-height:225px; }
+  .wedding-section { margin-bottom:36px; }
+  .wedding-gallery-grid { grid-template-columns:1fr; height:auto; }
+  .wedding-gallery-main { height:210px; }
+  .wedding-gallery-side { grid-template-columns:1fr 1fr; grid-template-rows:125px; }
+  .booking-panel { padding:20px 0 0; border-left:0; border-top:1px solid rgba(0,217,149,.45); }
+  .wedding-footer { flex-direction:column; gap:9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .package-card,.wedding-gallery-main img,.wedding-gallery-side img { transition:none; }
+}
+
+
+/* WEDDING REQUEST FORM */
+.booking-form-intro { margin-top: 13px; color: #bac5bc; font-size: 11px; line-height: 1.8; }
+.wedding-request-form { display: grid; gap: 9px; margin-top: 19px; }
+.wedding-request-form label { margin-top: 5px; color: var(--gold-light); font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; }
+.wedding-request-form input,
+.wedding-request-form textarea {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid rgba(0,217,149,.38);
+    border-radius: 8px;
+    outline: none;
+    background: rgba(1,8,5,.72);
+    color: var(--white);
+    font: 11px 'DM Sans', sans-serif;
+    color-scheme: dark;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+.wedding-request-form textarea { min-height: 105px; resize: vertical; line-height: 1.6; }
+.wedding-request-form input:focus,
+.wedding-request-form textarea:focus { border-color: var(--emerald-bright); box-shadow: 0 0 13px rgba(0,217,149,.12); }
+.wedding-request-form input::placeholder,
+.wedding-request-form textarea::placeholder { color: #77877c; }
+.wedding-request-form .booking-cta {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 9px;
+    cursor: pointer;
+    background: linear-gradient(100deg,rgba(232,203,121,.10),rgba(0,217,149,.08));
+    font: inherit;
+    text-align: left;
+}
+.wedding-request-form .booking-cta:hover { border-color: var(--emerald-bright); box-shadow: 0 0 20px rgba(0,217,149,.14); }
+
+
+/* MINIMAL WEDDINGS PAGE — keep only hero, short intro and offer form */
+.wedding-hero { margin-bottom: 18px; }
+.wedding-intro {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+    padding: 18px 3.5% 20px;
+    margin-bottom: 22px;
+}
+.wedding-intro-heading h2 { font-size: clamp(27px, 2.8vw, 38px); }
+.wedding-intro-copy { font-size: 11px; line-height: 1.7; }
+.wedding-booking {
+    grid-template-columns: .8fr 1.2fr;
+    gap: 25px;
+    padding: 20px 3%;
+    margin-bottom: 20px;
+}
+.wedding-booking h2 { font-size: clamp(28px, 3vw, 40px); }
+.booking-copy { margin-top: 10px; font-size: 10px; line-height: 1.65; }
+.booking-panel { padding: 10px 0 10px 22px; }
+.booking-form-intro { margin-top: 7px; font-size: 10px; line-height: 1.5; }
+.wedding-request-form { grid-template-columns: 1fr; gap: 6px; margin-top: 10px; }
+.wedding-request-form label { margin-top: 3px; font-size: 8px; }
+.wedding-request-form input { padding: 9px 11px; }
+.wedding-request-form textarea { min-height: 68px; padding: 9px 11px; resize: vertical; }
+.wedding-request-form .booking-cta { margin-top: 5px; padding: 10px 14px; }
+.booking-note { margin-top: 7px; }
+.wedding-footer { margin-top: 8px; }
+
+@media (max-width: 680px) {
+  .wedding-intro { grid-template-columns: 1fr; gap: 10px; padding: 17px 3% 18px; }
+  .wedding-booking { grid-template-columns: 1fr; gap: 12px; padding: 18px 4%; }
+  .booking-panel { padding: 14px 0 0; border-left: 0; border-top: 1px solid rgba(0,217,149,.35); }
+}
