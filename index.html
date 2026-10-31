@@ -243,20 +243,20 @@
                         <span class="story-button-icon">↗</span>
                     </button>
                 </div>
-                 <div class="story-panel" id="storyPanel" aria-hidden="true">
-                <div class="story-panel-inner">
-                    <p class="section-eyebrow">THE STORY BEHIND THE MUSIC</p>
+                <div class="story-panel" id="storyPanel" aria-hidden="true">
+                    <div class="story-panel-inner">
+                        <p class="section-eyebrow">THE STORY BEHIND THE MUSIC</p>
 
-                    <h3>My Story</h3>
+                        <h3>My Story</h3>
 
-                    <div class="story-text">
-                        <!-- Povestea lui Geo va fi completată ulterior. -->
+                        <div class="story-text">
+                            <!-- Povestea lui Geo va fi completată ulterior. -->
+                        </div>
                     </div>
                 </div>
-            </div>
             </article>
 
-           
+
 
 
             <!-- GALERIE VIDEO SI FOTO -->
@@ -333,10 +333,10 @@
                     <button type="button" aria-label="Recenzia următoare">→</button>
                 </div>
 
-                <a href="#contact" class="book-button" id="contact">
-                    <span>Book now</span>
+                <button type="button" class="book-button" id="contact">
+                    <span>Rezervă acum</span>
                     <span class="book-arrow">↗</span>
-                </a>
+                </button>
             </section>
 
         </section>
@@ -346,29 +346,186 @@
             <p>Live Music. Real Emotions.</p>
         </footer>
 
+
+        <!-- FEREASTRĂ REZERVARE -->
+        <div class="booking-modal" id="bookingModal" aria-hidden="true">
+            <div class="booking-backdrop" data-close-booking></div>
+
+            <div class="booking-panel" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+
+                <button type="button" class="booking-close" data-close-booking aria-label="Închide fereastra">×</button>
+
+                <p class="section-eyebrow">GREEN VIOLIN EXPERIENCE</p>
+                <h2 id="bookingTitle">Hai să creăm un moment special</h2>
+                <p class="booking-intro">
+                    Spune-mi câteva detalii despre evenimentul tău și despre experiența muzicală pe care ți-o dorești.
+                </p>
+
+                <form id="bookingForm">
+
+                    <label for="eventType">Tipul evenimentului</label>
+                    <select id="eventType" name="eventType" required>
+                        <option value="">Alege tipul evenimentului</option>
+                        <option>Nuntă – primirea invitaților</option>
+                        <option>Nuntă – moment artistic</option>
+                        <option>Eveniment corporate</option>
+                        <option>Lansare de carte</option>
+                        <option>Expoziție</option>
+                        <option>Petrecere privată</option>
+                        <option>Club</option>
+                        <option>Concert / Cafenea</option>
+                        <option>Restaurant / Lounge</option>
+                        <option>Alt tip de eveniment</option>
+                    </select>
+
+                    <label for="eventDate">Data evenimentului</label>
+                    <input type="date" id="eventDate" name="eventDate" required>
+
+                    <label for="musicFormat">Formula muzicală dorită</label>
+                    <select id="musicFormat" name="musicFormat" required>
+                        <option value="">Alege formula muzicală</option>
+                        <option>Vioară solo</option>
+                        <option>Vioară + darbuka</option>
+                        <option>Vioară + chitară</option>
+                    </select>
+
+                    <label for="performanceDuration">Durata aproximativă a programului</label>
+                    <input type="text" id="performanceDuration" name="performanceDuration"
+                        placeholder="Exemplu: 1 oră, 2 ore..." required>
+
+                    <label for="eventLocation">Locația evenimentului</label>
+                    <input type="text" id="eventLocation" name="eventLocation" placeholder="Oraș / local / sală"
+                        required>
+
+                    <label for="eventTime">Ora aproximativă de începere</label>
+                    <input type="time" id="eventTime" name="eventTime">
+
+                    <label for="bookingDetails">Alte detalii (opțional)</label>
+                    <textarea id="bookingDetails" name="bookingDetails" rows="3"
+                        placeholder="Povestește-mi câteva detalii despre eveniment..."></textarea>
+
+                    <button type="submit" class="booking-submit">
+                        Trimite solicitarea pe WhatsApp <span>↗</span>
+                    </button>
+
+                    <p class="booking-note">
+                        Solicitarea nu reprezintă o rezervare confirmată. Vei primi un răspuns privind disponibilitatea
+                        și oferta.
+                    </p>
+
+                </form>
+            </div>
+        </div>
+
+
+
     </main>
 
-<script>
-    const storyToggle = document.getElementById("storyToggle");
-    const storyPanel = document.getElementById("storyPanel");
-    const storyButtonText = storyToggle.querySelector(".story-button-text");
+    <script>
+        const storyToggle = document.getElementById("storyToggle");
+        const storyPanel = document.getElementById("storyPanel");
+        const storyButtonText = storyToggle.querySelector(".story-button-text");
 
-    storyToggle.addEventListener("click", () => {
-        const isOpen = storyToggle.getAttribute("aria-expanded") === "true";
+        storyToggle.addEventListener("click", () => {
+    const isOpen = storyToggle.getAttribute("aria-expanded") === "true";
 
-        storyToggle.setAttribute("aria-expanded", String(!isOpen));
-        storyPanel.classList.toggle("is-open", !isOpen);
-        storyPanel.setAttribute("aria-hidden", String(isOpen));
+    storyToggle.setAttribute("aria-expanded", String(!isOpen));
+    storyPanel.setAttribute("aria-hidden", String(isOpen));
 
-        storyButtonText.textContent = isOpen
-            ? "Read my story"
-            : "Close story";
+    storyButtonText.textContent = isOpen
+        ? "Read my story"
+        : "Close story";
 
-    });
-</script>
+    if (isOpen) {
+        storyPanel.classList.remove("is-open");
+        storyPanel.classList.add("is-closing");
+
+        const finishClosing = (event) => {
+            if (event.target !== storyPanel ||
+                event.animationName !== "storyFadeOut") {
+                return;
+            }
+
+            storyPanel.classList.remove("is-closing");
+            storyPanel.removeEventListener("animationend", finishClosing);
+        };
+
+        storyPanel.addEventListener("animationend", finishClosing);
+
+    } else {
+        storyPanel.classList.remove("is-closing");
+        storyPanel.classList.add("is-open");
+    }
+});
+
+        // BOOKING MODAL
+        const bookingModal = document.getElementById("bookingModal");
+        const bookingButton = document.getElementById("contact");
+        const bookingForm = document.getElementById("bookingForm");
+
+        function openBookingModal() {
+            bookingModal.classList.add("is-open");
+            bookingModal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("booking-open");
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.remove("is-open");
+            bookingModal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("booking-open");
+        }
+
+        bookingButton.addEventListener("click", openBookingModal);
+
+        document.querySelectorAll("[data-close-booking]").forEach(button => {
+            button.addEventListener("click", closeBookingModal);
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape" && bookingModal.classList.contains("is-open")) {
+                closeBookingModal();
+            }
+        });
+
+        // TRIMITERE SOLICITARE PE WHATSAPP
+        bookingForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const tipEveniment = document.getElementById("eventType").value;
+            const data = document.getElementById("eventDate").value;
+            const formula = document.getElementById("musicFormat").value;
+            const durata = document.getElementById("performanceDuration").value;
+            const locatie = document.getElementById("eventLocation").value;
+            const ora = document.getElementById("eventTime").value;
+            const detalii = document.getElementById("bookingDetails").value;
+
+            const mesaj = `
+SOLICITARE DE REZERVARE — GREEN VIOLIN
+
+Tipul evenimentului: ${tipEveniment}
+Data: ${data}
+Formula muzicală: ${formula}
+Durata programului: ${durata}
+Locația: ${locatie}
+Ora de începere: ${ora || "Nespecificată"}
+
+Detalii suplimentare:
+${detalii || "Nu au fost adăugate detalii."}
+
+Doresc să verific disponibilitatea și să primesc o ofertă.
+            `;
+
+            const numarWhatsApp = "07XXXXXX";
+            const linkWhatsApp = `https://wa.me/${numarWhatsApp}?text=${encodeURIComponent(mesaj)}`;
+
+            window.open(linkWhatsApp, "_blank");
+        });
 
 
-    
+    </script>
+
+
+
 </body>
 
 </html>
