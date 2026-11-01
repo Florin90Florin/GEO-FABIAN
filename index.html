@@ -272,21 +272,27 @@
                     </a>
 
                     <div class="media-thumbnails">
+
                         <a href="#media" class="media-thumb">
-                            <img src="images/gallery-1.jpg" alt="Moment muzical live">
+                            <img src="images/gallery-1.jpg" alt="Moment de vioară">
+                            <span class="media-thumb-title">MOMENT DE VIOARĂ</span>
                         </a>
 
                         <a href="#media" class="media-thumb">
-                            <img src="images/gallery-2.jpg" alt="Concert Green Violin">
+                            <img src="images/gallery-2.jpg" alt="Vioară și darbuka">
+                            <span class="media-thumb-title">VIOARĂ & DARABANĂ</span>
                         </a>
 
                         <a href="#media" class="media-thumb">
-                            <img src="images/gallery-3.jpg" alt="Eveniment elegant">
+                            <img src="images/gallery-3.jpg" alt="Vioară și chitară">
+                            <span class="media-thumb-title">VIOARĂ & CHITARĂ</span>
                         </a>
 
                         <a href="#media" class="media-thumb">
-                            <img src="images/gallery-4.jpg" alt="Geo Fabian pe scenă">
+                            <img src="images/gallery-4.jpg" alt="Vioară live în restaurant">
+                            <span class="media-thumb-title">VIOARĂ/ MANDOLINĂ – RESTAURANTE</span>
                         </a>
+
                     </div>
 
                 </div>
@@ -385,6 +391,7 @@
                     <select id="musicFormat" name="musicFormat" required>
                         <option value="">Alege formula muzicală</option>
                         <option>Vioară solo</option>
+                        <option>Mandolină solo</option>
                         <option>Vioară + darbuka</option>
                         <option>Vioară + chitară</option>
                     </select>
@@ -427,36 +434,36 @@
         const storyButtonText = storyToggle.querySelector(".story-button-text");
 
         storyToggle.addEventListener("click", () => {
-    const isOpen = storyToggle.getAttribute("aria-expanded") === "true";
+            const isOpen = storyToggle.getAttribute("aria-expanded") === "true";
 
-    storyToggle.setAttribute("aria-expanded", String(!isOpen));
-    storyPanel.setAttribute("aria-hidden", String(isOpen));
+            storyToggle.setAttribute("aria-expanded", String(!isOpen));
+            storyPanel.setAttribute("aria-hidden", String(isOpen));
 
-    storyButtonText.textContent = isOpen
-        ? "Read my story"
-        : "Close story";
+            storyButtonText.textContent = isOpen
+                ? "Read my story"
+                : "Close story";
 
-    if (isOpen) {
-        storyPanel.classList.remove("is-open");
-        storyPanel.classList.add("is-closing");
+            if (isOpen) {
+                storyPanel.classList.remove("is-open");
+                storyPanel.classList.add("is-closing");
 
-        const finishClosing = (event) => {
-            if (event.target !== storyPanel ||
-                event.animationName !== "storyFadeOut") {
-                return;
+                const finishClosing = (event) => {
+                    if (event.target !== storyPanel ||
+                        event.animationName !== "storyFadeOut") {
+                        return;
+                    }
+
+                    storyPanel.classList.remove("is-closing");
+                    storyPanel.removeEventListener("animationend", finishClosing);
+                };
+
+                storyPanel.addEventListener("animationend", finishClosing);
+
+            } else {
+                storyPanel.classList.remove("is-closing");
+                storyPanel.classList.add("is-open");
             }
-
-            storyPanel.classList.remove("is-closing");
-            storyPanel.removeEventListener("animationend", finishClosing);
-        };
-
-        storyPanel.addEventListener("animationend", finishClosing);
-
-    } else {
-        storyPanel.classList.remove("is-closing");
-        storyPanel.classList.add("is-open");
-    }
-});
+        });
 
         // BOOKING MODAL
         const bookingModal = document.getElementById("bookingModal");
