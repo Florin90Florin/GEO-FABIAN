@@ -255,24 +255,6 @@ img {
 }
 
 
-/* ASYMMETRIC BOTTOM EDGE — EMERALD GREEN GLOW */
-/* EMERALD GLOW — MATCHES THE EXACT BOTTOM MASK CURVE */
-.site-shell::after {
-    content: "";
-    position: absolute;
-    z-index: 5;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 160px;
-    pointer-events: none;
-
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 160' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='g' x='-30' y='-30' width='1060' height='220' filterUnits='userSpaceOnUse'%3E%3CfeGaussianBlur stdDeviation='6'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M0 154.6 C160 156.2 390 157 640 157 C810 157 930 153.8 1000 152.2' fill='none' stroke='%2300d995' stroke-width='13' opacity='.85' filter='url(%23g)'/%3E%3Cpath d='M0 154.6 C160 156.2 390 157 640 157 C810 157 930 153.8 1000 152.2' fill='none' stroke='%2300d995' stroke-width='4' opacity='.9'/%3E%3Cpath d='M0 154.6 C160 156.2 390 157 640 157 C810 157 930 153.8 1000 152.2' fill='none' stroke='%2335ffc0' stroke-width='1.3'/%3E%3C/svg%3E");
-
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
 
 
 /* HERO */
@@ -3899,16 +3881,6 @@ img {
     }
 }
 
-/* ASYMMETRIC SITE SHELL MASK */
-.site-shell {
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cmask id='m'%3E%3Cpath fill='white' d='M28 0 H972 Q1000 0 1000 28 V970 C930 980 810 1000 640 1000 C390 1000 160 995 0 985 V28 Q0 0 28 0 Z'/%3E%3C/mask%3E%3C/defs%3E%3Crect width='1000' height='1000' fill='white' mask='url(%23m)'/%3E%3C/svg%3E");
-
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M28 0 H972 Q1000 0 1000 28 V970 C930 980 810 1000 640 1000 C390 1000 160 995 0 985 V28 Q0 0 28 0 Z'/%3E%3C/svg%3E");
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-}
 
 
 
@@ -4294,11 +4266,12 @@ img {
 
 .booking-panel {
     position: relative;
+    transform: translateY(-30px);
     z-index: 2;
     width: min(650px, 100%);
-    max-height: 86vh;
+    max-height: 76vh;
     overflow-y: auto;
-    padding: 38px 45px;
+    padding: 28px 38px;
     color: var(--white);
     background:
         radial-gradient(ellipse at 15% 15%, rgba(0, 217, 149, .18), transparent 45%),
@@ -4357,7 +4330,7 @@ img {
 #bookingForm {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 7px 15px;
+    gap: 5px 15px;
 }
 
 #bookingForm label {
@@ -4365,7 +4338,7 @@ img {
     color: var(--gold-light);
     font-size: 11px;
     letter-spacing: 1px;
-    margin-top: 6px;
+    margin-top: 4px;
 }
 
 #bookingForm input,
@@ -4417,8 +4390,8 @@ img {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-top: 12px;
-    padding: 14px 18px;
+    margin-top: 10px;
+    padding: 11px 16px;
     color: #03120d;
     background: linear-gradient(110deg, #d9ed62, #e8cb79);
     border: none;
