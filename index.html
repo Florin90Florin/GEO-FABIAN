@@ -261,37 +261,48 @@
 
             <!-- GALERIE VIDEO SI FOTO -->
 
+
+            <!-- GALERIE VIDEO SI FOTO -->
             <section class="media-section" id="media">
                 <p class="section-eyebrow">VIDEO & MOMENTS</p>
 
                 <div class="media-gallery">
 
-                    <a href="#contact" class="featured-video">
-                        <img src="images/video-featured.jpg" alt="Geo Fabian cântând la un eveniment">
-                        <span class="video-play" aria-label="Vezi videoclipul">▶</span>
-                    </a>
+                    <!-- ZONA VIDEO / FOTO PRINCIPALA -->
+                    <div class="featured-video" id="featuredMedia">
 
+                        <video id="featuredMediaVideo" muted playsinline loop preload="none">
+                        </video>
+
+                        <img id="featuredMediaImage" src="" alt="Geo Fabian - Green Violin">
+
+                        <span class="video-play" id="mediaPlayIcon" aria-hidden="true">▶</span>
+
+                    </div>
+
+                    <!-- CELE PATRU OFERTE -->
                     <div class="media-thumbnails">
 
-                        <a href="#media" class="media-thumb">
-                            <img src="images/gallery-1.jpg" alt="Moment de vioară">
+                        <button type="button" class="media-thumb active" data-video="" data-images=""
+                            aria-pressed="true">
+
                             <span class="media-thumb-title">MOMENT DE VIOARĂ</span>
-                        </a>
+                        </button>
 
-                        <a href="#media" class="media-thumb">
-                            <img src="images/gallery-2.jpg" alt="Vioară și darbuka">
+                        <button type="button" class="media-thumb" data-video="" data-images="" aria-pressed="false">
+
                             <span class="media-thumb-title">VIOARĂ & DARABANĂ</span>
-                        </a>
+                        </button>
 
-                        <a href="#media" class="media-thumb">
-                            <img src="images/gallery-3.jpg" alt="Vioară și chitară">
+                        <button type="button" class="media-thumb" data-video="" data-images="" aria-pressed="false">
+
                             <span class="media-thumb-title">VIOARĂ & CHITARĂ</span>
-                        </a>
+                        </button>
 
-                        <a href="#media" class="media-thumb">
-                            <img src="images/gallery-4.jpg" alt="Vioară live în restaurant">
-                            <span class="media-thumb-title">VIOARĂ/ MANDOLINĂ – RESTAURANTE</span>
-                        </a>
+                        <button type="button" class="media-thumb" data-video="" data-images="" aria-pressed="false">
+
+                            <span class="media-thumb-title">VIOARĂ LIVE – RESTAURANTE</span>
+                        </button>
 
                     </div>
 
@@ -305,6 +316,7 @@
                     <span>05</span>
                 </div>
             </section>
+
 
 
             <!-- RECENZII -->
@@ -464,6 +476,87 @@
                 storyPanel.classList.add("is-open");
             }
         });
+
+
+        // VIDEO & MOMENTS - SELECTAREA OFERTELOR
+
+        const mediaButtons = document.querySelectorAll(".media-thumb");
+        const featuredVideo = document.getElementById("featuredMediaVideo");
+        const featuredImage = document.getElementById("featuredMediaImage");
+        const mediaPlayIcon = document.getElementById("mediaPlayIcon");
+
+        let imageSlideshow = null;
+
+        function stopCurrentMedia() {
+            clearInterval(imageSlideshow);
+            imageSlideshow = null;
+
+            featuredVideo.pause();
+            featuredVideo.removeAttribute("src");
+            featuredVideo.load();
+            featuredVideo.classList.remove("is-visible");
+
+            featuredImage.removeAttribute("src");
+            featuredImage.classList.remove("is-visible");
+
+            mediaPlayIcon.style.display = "none";
+        }
+
+        function showImages(images) {
+            let currentImage = 0;
+
+            function displayImage() {
+                featuredImage.classList.remove("is-visible");
+
+                featuredImage.onload = () => {
+                    featuredImage.classList.add("is-visible");
+                };
+
+                featuredImage.src = images[currentImage];
+                currentImage = (currentImage + 1) % images.length;
+            }
+
+            displayImage();
+
+            if (images.length > 1) {
+                imageSlideshow = setInterval(displayImage, 3000);
+            }
+        }
+
+        function selectMedia(button) {
+            stopCurrentMedia();
+
+            mediaButtons.forEach(item => {
+                const isActive = item === button;
+
+                item.classList.toggle("active", isActive);
+                item.setAttribute("aria-pressed", String(isActive));
+            });
+
+            const videoSource = button.dataset.video.trim();
+            const imageSources = button.dataset.images
+                .split("|")
+                .map(path => path.trim())
+                .filter(Boolean);
+
+            if (videoSource) {
+                featuredVideo.src = videoSource;
+                featuredVideo.classList.add("is-visible");
+                featuredVideo.load();
+
+                featuredVideo.play().catch(() => {
+                    mediaPlayIcon.style.display = "grid";
+                });
+
+            } else if (imageSources.length > 0) {
+                showImages(imageSources);
+            }
+        }
+
+        mediaButtons.forEach(button => {
+            button.addEventListener("click", () => selectMedia(button));
+        });
+
 
         // BOOKING MODAL
         const bookingModal = document.getElementById("bookingModal");

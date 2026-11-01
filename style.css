@@ -1556,18 +1556,40 @@ img {
 
 
 
+
 .featured-video img,
-
-.media-thumb img {
-
+.featured-video video {
+    position: absolute;
+    inset: 0;
     width: 100%;
-
     height: 100%;
-
+    object-fit: cover;
     opacity: 0;
+    transition: opacity .5s ease;
+}
 
-    transition: transform .5s ease;
+.featured-video img.is-visible,
+.featured-video video.is-visible {
+    opacity: 1;
+}
 
+.media-thumb {
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+    transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+.media-thumb.active {
+    border-color: var(--gold-light);
+    box-shadow:
+        0 0 10px rgba(232, 203, 121, .25),
+        inset 0 0 12px rgba(0, 217, 149, .12);
+}
+
+.media-thumb:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 2px;
 }
 
 
