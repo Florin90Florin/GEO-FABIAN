@@ -485,20 +485,7 @@ img {
 
     border-radius: 0 0 45px 45px;
 
-    clip-path: polygon(0 0,
-            100% 0,
-            100% 78%,
-            97% 82%,
-            92% 84%,
-            85% 84%,
-            75% 82%,
-            65% 79%,
-            55% 77%,
-            45% 76%,
-            35% 78%,
-            25% 85%,
-            15% 93%,
-            0 100%);
+
 
     overflow: hidden;
 
@@ -581,6 +568,8 @@ img {
     object-fit: cover;
 
     object-position: center 10%;
+    -webkit-mask-image: linear-gradient(to bottom, #000 85%, transparent 95%);
+    mask-image: linear-gradient(to bottom, #000 85%, transparent 95%);
 
     opacity: 1;
     position: relative;
@@ -799,7 +788,6 @@ img {
 
     min-width: 0;
 
-    height: 228px;
 
     overflow: hidden;
 
@@ -811,7 +799,7 @@ img {
 
         linear-gradient(145deg, #10281b, #020805 78%);
 
-    transform: skewX(-9deg) rotate(-2.5deg);
+
 
     transform-origin: center;
 
@@ -825,7 +813,7 @@ img {
 
     --card-glow: #e8cb79;
 
-    transform: skewX(-10deg) rotate(-2.5deg) translateY(2px)
+
 }
 
 
@@ -833,7 +821,7 @@ img {
 
     --card-glow: #00e6a0;
 
-    transform: skewX(-8deg) rotate(1.8deg) translateY(-2px)
+
 }
 
 
@@ -841,7 +829,7 @@ img {
 
     --card-glow: #b9e95e;
 
-    transform: skewX(-8deg) rotate(-1.8deg) translateY(1px)
+
 }
 
 
@@ -849,7 +837,7 @@ img {
 
     --card-glow: #e8cb79;
 
-    transform: skewX(-10deg) rotate(1.8deg) translateY(-1px)
+
 }
 
 
@@ -1010,39 +998,6 @@ img {
 }
 
 
-/* Hover: light and border only; cards do not move */
-
-
-.wedding-card:hover {
-
-    transform: skewX(-10deg) rotate(-2.5deg) translateY(2px)
-}
-
-
-.corporate-card:hover {
-
-    transform: skewX(-8deg) rotate(1.8deg) translateY(-2px)
-}
-
-
-.private-card:hover {
-
-    transform: skewX(-8deg) rotate(-1.8deg) translateY(1px)
-}
-
-
-.lounge-card:hover {
-
-    transform: skewX(-10deg) rotate(1.8deg) translateY(-1px)
-}
-
-
-.event-card:hover .event-arrow {
-
-    background: var(--gold-light);
-
-    color: #06130b
-}
 
 
 .event-card:focus-within {
@@ -1092,17 +1047,6 @@ img {
     .event-content p {
 
         font-size: 10px;
-
-    }
-
-
-    .event-arrow {
-
-        right: 10px;
-
-        width: 29px;
-
-        height: 29px;
 
     }
 
@@ -1941,7 +1885,6 @@ img {
 
     min-width: 0;
 
-    height: 225px;
 
     overflow: hidden;
 
@@ -1953,7 +1896,6 @@ img {
 
         linear-gradient(155deg, #10281b 0%, #06130c 48%, #010604 100%);
 
-    transform: none;
 
     transition: filter .28s ease, brightness .28s ease;
 
@@ -2250,7 +2192,6 @@ img {
 
     min-width: 0;
 
-    height: 245px;
 
     overflow: hidden;
 
@@ -2262,7 +2203,6 @@ img {
 
         linear-gradient(155deg, #10281b 0%, #06130c 48%, #010604 100%);
 
-    transform-origin: center center;
 
     transition: border-color .25s ease, box-shadow .25s ease, filter .25s ease;
 
@@ -2272,20 +2212,7 @@ img {
 
 /* Matching silhouettes: cards 1 and 3 share a shape; 2 and 4 mirror it. */
 
-.wedding-card,
 
-.private-card {
-
-    transform: skewX(-7deg) rotate(-2deg)
-}
-
-
-.corporate-card,
-
-.lounge-card {
-
-    transform: skewX(-7deg) rotate(2deg)
-}
 
 
 .event-card::before {
@@ -2466,20 +2393,6 @@ img {
 /* Hover only changes lighting; the card's position and shape stay fixed. */
 
 
-.wedding-card:hover,
-
-.private-card:hover {
-
-    transform: skewX(-7deg) rotate(-2deg)
-}
-
-
-.corporate-card:hover,
-
-.lounge-card:hover {
-
-    transform: skewX(-7deg) rotate(2deg)
-}
 
 
 .corporate-card {
@@ -2499,16 +2412,6 @@ img {
 .lounge-card {
 
     --card-glow: #e8cb79
-}
-
-
-.event-card:hover .event-arrow,
-
-.event-card:focus-visible .event-arrow {
-
-    background: var(--gold-light);
-
-    color: #06130b
 }
 
 
@@ -2539,12 +2442,6 @@ img {
 
     }
 
-
-    .event-card {
-
-        height: 190px;
-
-    }
 
 
     .event-content {
@@ -2618,7 +2515,7 @@ img {
 
         linear-gradient(155deg, #10281b 0%, #06130c 48%, #010604 100%);
 
-    transform: skewX(-7deg) rotate(-1.2deg);
+
 
     transform-origin: center;
 
@@ -2636,7 +2533,7 @@ img {
 
     --card-glow: #e8cb79;
 
-    transform: skewX(-7deg) rotate(-1.2deg)
+
 }
 
 
@@ -2648,7 +2545,7 @@ img {
 
     --card-glow: #00d995;
 
-    transform: skewX(7deg) rotate(1.2deg)
+
 }
 
 
@@ -2795,34 +2692,12 @@ img {
 
 .lounge-card .event-arrow {
 
-    transform: skewX(-7deg)
+    transform: none;
 }
 
 
 /* Hover never moves or reshapes the cards */
 
-
-.wedding-card:hover,
-
-.private-card:hover {
-
-    transform: skewX(-7deg) rotate(-1.2deg)
-}
-
-
-.corporate-card:hover,
-
-.lounge-card:hover {
-    transform: skewX(7deg) rotate(1.2deg)
-}
-
-
-.event-card:hover .event-arrow,
-
-.event-card:focus-visible .event-arrow {
-    background: var(--gold-light);
-    color: #06130b
-}
 
 
 .event-card:focus-visible {
@@ -2878,12 +2753,10 @@ img {
 
 .wedding-card {
 
-
     width: 95%;
 
     justify-self: center;
 
-    transform: none !important
 }
 
 
@@ -2895,12 +2768,8 @@ img {
 }
 
 
-/* Pastram forma fixa la hover */
 
-.wedding-card:hover {
 
-    transform: none !important
-}
 
 
 /* CARD 3 — ACEEAȘI FORMĂ CA WEDDINGS */
@@ -2911,7 +2780,7 @@ img {
 
     justify-self: center;
 
-    transform: none !important
+
 }
 
 
@@ -2921,11 +2790,6 @@ img {
 }
 
 
-.private-card:hover {
-
-    transform: none !important
-}
-
 
 /* Extensia asimetrică a hero-ului este integrată în regula principală .hero-artist. */
 
@@ -2933,8 +2797,7 @@ img {
 /* CORPORATE EVENTS — CARD ÎNCLINAT */
 
 .event-card.corporate-card {
-    min-height: 245px;
-    height: 245px;
+
     width: 95%;
     margin-left: 2.5%;
 }
@@ -2977,20 +2840,9 @@ img {
    FINAL EVENT CARD GLOW — follows each rounded silhouette
    Keep this block last. Does not alter card geometry.
    ========================================================== */
-.events-section .event-card {
-    /* Remove the old rectangular pseudo-element outline. */
-    border: 0 !important
-}
-
-.events-section .event-card::after {
-    content: none !important;
-    display: none !important
-}
 
 
-.events-section .event-card:focus-visible {
-    outline: none
-}
+
 
 /* ==========================================================
    EVENT CARD GLOW FIX — separate silhouette from outer card
@@ -3006,21 +2858,11 @@ img {
     isolation: auto !important
 }
 
-/* Disable the old pseudo-elements on the outer rectangle. */
-.events-section .event-card::before,
-.events-section .event-card::after {
-    content: none !important;
-    display: none !important
-}
 
 .events-section .event-card-shape {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+
     background: #06130c;
-    transition: filter .28s ease, brightness .28s ease
+
 }
 
 /* Exact rounded asymmetric silhouettes retained from the latest CSS. */
@@ -3037,19 +2879,7 @@ img {
         linear-gradient(180deg, rgba(0, 0, 0, .02) 0%, rgba(0, 0, 0, .12) 36%, rgba(0, 0, 0, .92) 100%)
 }
 
-.events-section .event-card-shape::after {
-    content: "";
-    position: absolute;
-    z-index: 3;
-    inset: 0;
-    pointer-events: none;
-    opacity: .48;
-    transition: opacity .2s ease
-}
 
-.events-section .event-card:hover .event-card-shape::after {
-    opacity: 1
-}
 
 .events-section .event-card-shape>img {
     position: absolute;
@@ -3072,11 +2902,6 @@ img {
 
 .events-section .event-card-shape .event-arrow {
     z-index: 4
-}
-
-
-.events-section .event-card:focus-visible {
-    outline: none !important
 }
 
 
@@ -3307,6 +3132,7 @@ img {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -3316,6 +3142,7 @@ img {
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
@@ -3585,11 +3412,11 @@ img {
     backdrop-filter: none;
 }
 
-.booking-panel {
+.booking-modal .booking-panel {
     position: relative;
     transform: translateY(-30px);
     z-index: 2;
-    width: min(650px, 100%);
+    width: min(560px, calc(100% - 24px));
     max-height: 76vh;
     overflow-y: auto;
     scrollbar-width: thin;
@@ -3630,13 +3457,13 @@ img {
     transform: rotate(90deg);
 }
 
-.booking-panel .section-eyebrow {
+.booking-modal .booking-panel .section-eyebrow {
     color: var(--gold);
     letter-spacing: 3px;
     margin-bottom: 12px;
 }
 
-.booking-panel h2 {
+.booking-modal .booking-panel h2 {
     color: var(--white);
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(30px, 4vw, 40px);
@@ -3754,7 +3581,7 @@ body.booking-open {
         padding: 10px;
     }
 
-    .booking-panel {
+    .booking-modal .booking-panel {
         max-height: 94vh;
         padding: 32px 20px;
     }
@@ -3775,31 +3602,25 @@ body.booking-open {
    GREEN VIOLIN — BOOKING MODAL SCROLLBAR
 ========================================= */
 
-.booking-panel::-webkit-scrollbar {
+.booking-modal .booking-panel::-webkit-scrollbar {
     width: 6px;
 }
 
-.booking-panel::-webkit-scrollbar-track {
+.booking-modal .booking-panel::-webkit-scrollbar-track {
     background: transparent;
     margin: 25px 0;
 }
 
-.booking-panel::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-        180deg,
-        rgba(232, 203, 121, .8),
-        rgba(0, 217, 149, .65),
-        rgba(0, 217, 149, .2)
-    );
+.booking-modal .booking-panel::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg,
+            rgba(232, 203, 121, .8),
+            rgba(0, 217, 149, .65),
+            rgba(0, 217, 149, .2));
     border-radius: 20px;
 }
 
-.booking-panel::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(
-        180deg,
-        #e8cb79,
-        #00d995
-    );
+.booking-modal .booking-panel::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg,
+            #e8cb79,
+            #00d995);
 }
-
-
