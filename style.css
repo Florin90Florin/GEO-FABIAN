@@ -1,97 +1,64 @@
 /* =========================================================
 
 
-
    GEO FABIAN — GREEN VIOLIN
-
 
 
    Desktop concept reconstruction — temporary abstract visuals
 
 
-
    Replace the entire contents of style.css with this file.
-
 
 
    ========================================================= */
 
 
-
-
-
-
-
 @import url('https\://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Italianno&display=swap');
-
-
-
-
-
 
 
 :root {
 
 
-
     --bg: #020805;
-
 
 
     --bg-deep: #010402;
 
 
-
     --panel: #06150e;
-
 
 
     --emerald: #00d995;
 
 
-
     --emerald-bright: #35ffc0;
-
 
 
     --emerald-dark: #063b29;
 
 
-
     --lime: #d9ed62;
-
 
 
     --gold: #e8cb79;
 
 
-
     --gold-light: #fff0b5;
-
 
 
     --white: #f5f4ee;
 
 
-
     --muted: #aebbb1;
-
 
 
     --line: rgba(232, 203, 121, .48);
 
 
-
     --shell-width: 1800px;
 
 
-
 }
-
-
-
-
-
 
 
 * {
@@ -105,7 +72,6 @@
 }
 
 
-
 html {
 
     scroll-behavior: smooth;
@@ -113,7 +79,6 @@ html {
     background: var(--bg-deep);
 
 }
-
 
 
 body {
@@ -145,7 +110,6 @@ a {
 }
 
 
-
 button {
 
     color: inherit;
@@ -153,7 +117,6 @@ button {
     font: inherit;
 
 }
-
 
 
 img {
@@ -167,69 +130,49 @@ img {
 }
 
 
-
-
-
-
-
 .site-shell {
-
 
 
     position: relative;
 
 
-
     isolation: isolate;
-
 
 
     width: min(calc(100% - 44px), var(--shell-width));
 
 
-
     margin: 12px auto;
-
 
 
     padding: 26px 25px 55px;
 
 
-
     overflow: hidden;
-
 
 
     border: 1px solid var(--line);
 
 
-
     border-radius: 28px;
-
 
 
     background:
 
 
-
         radial-gradient(ellipse at 48% 5%, rgba(0, 112, 65, .16), transparent 40%),
-
 
 
         linear-gradient(145deg, rgba(4, 19, 12, .97), rgba(1, 6, 4, .99) 72%);
 
 
-
     box-shadow: 0 0 65px rgba(0, 225, 135, .06), inset 0 0 80px rgba(0, 0, 0, .42);
-
 
 
 }
 
 
-
 .site-shell::before {
-
 
 
     content: "";
@@ -239,7 +182,6 @@ img {
     pointer-events: none;
     opacity: .55;
     background:
-
 
 
         radial-gradient(ellipse at 48% 25%, rgba(0, 180, 102, .13), transparent 40%),
@@ -255,14 +197,10 @@ img {
 }
 
 
-
-
 /* HERO */
 
 
-
 .hero {
-
 
 
     position: relative;
@@ -272,9 +210,7 @@ img {
     display: grid;
 
 
-
     grid-template-columns: 190px minmax(0, 1fr) 340px;
-
 
 
     align-items: center;
@@ -286,13 +222,10 @@ img {
     margin-bottom: 0;
 
 
-
 }
 
 
-
 .hero::before {
-
 
 
     content: "";
@@ -306,29 +239,22 @@ img {
     pointer-events: none;
 
 
-
     background:
-
 
 
         radial-gradient(ellipse at 43% 44%, rgba(0, 231, 139, .30), transparent 38%),
 
 
-
         radial-gradient(ellipse at 56% 60%, rgba(0, 110, 68, .22), transparent 47%),
-
 
 
         radial-gradient(ellipse at 72% 25%, rgba(216, 178, 81, .11), transparent 30%),
 
 
-
         radial-gradient(ellipse at 36% 20%, rgba(1, 67, 41, .42), transparent 45%);
 
 
-
 }
-
 
 
 .hero::after {
@@ -352,7 +278,6 @@ img {
 }
 
 
-
 .brand {
 
     position: absolute;
@@ -366,7 +291,6 @@ img {
 }
 
 
-
 .brand-link {
 
     display: flex;
@@ -376,7 +300,6 @@ img {
     width: max-content;
 
 }
-
 
 
 .brand-name {
@@ -396,7 +319,6 @@ img {
 }
 
 
-
 .brand-subtitle {
 
     margin-top: 8px;
@@ -410,7 +332,6 @@ img {
     letter-spacing: 4.2px;
 
 }
-
 
 
 .side-navigation {
@@ -432,7 +353,6 @@ img {
 }
 
 
-
 .nav-link {
     display: grid;
     grid-template-columns: 29px 1fr;
@@ -448,7 +368,6 @@ img {
     text-transform: uppercase;
     transition: color .25s ease;
 }
-
 
 
 .nav-number {
@@ -474,12 +393,10 @@ img {
 }
 
 
-
 .nav-link:hover,
 .nav-link.active {
     color: var(--gold-light);
 }
-
 
 
 .nav-link.active .nav-number {
@@ -489,7 +406,6 @@ img {
 
 /* Green emerald glow on menu hover */
 .nav-link:hover {
-    color: var(--gold-light);
     text-shadow:
         0 0 6px rgba(0, 217, 149, .75),
         0 0 14px rgba(0, 217, 149, .45),
@@ -502,7 +418,6 @@ img {
         0 0 8px rgba(0, 217, 149, .55),
         0 0 16px rgba(0, 217, 149, .3);
 }
-
 
 
 .sound-control {
@@ -523,7 +438,6 @@ img {
     line-height: 1.5;
     cursor: pointer;
 }
-
 
 
 .sound-icon {
@@ -551,17 +465,10 @@ img {
 }
 
 
-
-
-
-
-
 /* Abstract hero image placeholder: gives the central space visual weight before photos arrive. */
 
 
-
 .hero-artist {
-
 
 
     position: absolute;
@@ -572,46 +479,54 @@ img {
 
     right: 220px;
 
-    bottom: 0;
+    bottom: -245px;
 
     left: 145px;
+
+    border-radius: 0 0 45px 45px;
+
+    clip-path: polygon(0 0,
+            100% 0,
+            100% 78%,
+            97% 82%,
+            92% 84%,
+            85% 84%,
+            75% 82%,
+            65% 79%,
+            55% 77%,
+            45% 76%,
+            35% 78%,
+            25% 85%,
+            15% 93%,
+            0 100%);
 
     overflow: hidden;
 
     pointer-events: none;
 
 
-
     background:
-
 
 
         radial-gradient(ellipse at 47% 39%, rgba(0, 245, 150, .25), transparent 27%),
 
 
-
         radial-gradient(ellipse at 54% 55%, rgba(0, 112, 69, .40), transparent 47%),
-
 
 
         radial-gradient(ellipse at 33% 60%, rgba(0, 255, 170, .14), transparent 35%),
 
 
-
         radial-gradient(ellipse at 68% 18%, rgba(232, 203, 121, .16), transparent 22%),
-
 
 
         linear-gradient(120deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .22));
 
 
-
 }
 
 
-
 .hero-artist::before {
-
 
 
     content: "";
@@ -639,9 +554,7 @@ img {
 }
 
 
-
 .hero-artist::after {
-
 
 
     content: "";
@@ -653,13 +566,10 @@ img {
     pointer-events: none;
 
 
-
     background: radial-gradient(ellipse at 50% 44%, transparent 0 18%, rgba(1, 6, 4, .08) 45%, rgba(1, 6, 4, .7) 100%), linear-gradient(0deg, rgba(0, 0, 0, .3), transparent 40%);
 
 
-
 }
-
 
 
 .hero-image {
@@ -679,7 +589,6 @@ img {
 }
 
 
-
 .hero-copy {
 
     grid-column: 3;
@@ -693,7 +602,6 @@ img {
 }
 
 
-
 .hero-eyebrow {
 
     margin-bottom: 14px;
@@ -705,7 +613,6 @@ img {
     letter-spacing: 3px;
 
 }
-
 
 
 .hero-copy h1 {
@@ -731,7 +638,6 @@ img {
 }
 
 
-
 .hero-signature {
 
     margin-top: 21px;
@@ -747,7 +653,6 @@ img {
     transform: rotate(-5deg);
 
 }
-
 
 
 .showreel-button {
@@ -781,7 +686,6 @@ img {
 }
 
 
-
 .showreel-button:hover {
 
     border-color: var(--gold-light);
@@ -789,7 +693,6 @@ img {
     box-shadow: 0 0 22px rgba(232, 203, 121, .25);
 
 }
-
 
 
 .play-icon {
@@ -813,7 +716,6 @@ img {
     font-size: 11px;
 
 }
-
 
 
 .scroll-indicator {
@@ -847,7 +749,6 @@ img {
 }
 
 
-
 .scroll-line {
 
     width: 1px;
@@ -857,7 +758,6 @@ img {
     background: linear-gradient(transparent, var(--gold), transparent);
 
 }
-
 
 
 .scroll-dot {
@@ -873,33 +773,20 @@ img {
 }
 
 
-
-
-
-
-
 /* EVENT CARDS — fixed asymmetrical geometry inspired by the reference */
 
 .events-section {
-
     position: relative;
-
     z-index: 4;
-
     display: grid;
-
     grid-template-columns: repeat(4, minmax(0, 1fr));
-
     gap: 13px;
-
     margin: 0 0 27px;
-
+    padding: 4px 2px 7px;
     align-items: center;
-
     perspective: none;
-
+    overflow: visible !important;
 }
-
 
 
 .event-card {
@@ -934,14 +821,12 @@ img {
 }
 
 
-
 .wedding-card {
 
     --card-glow: #e8cb79;
 
     transform: skewX(-10deg) rotate(-2.5deg) translateY(2px)
 }
-
 
 
 .corporate-card {
@@ -952,14 +837,12 @@ img {
 }
 
 
-
 .private-card {
 
     --card-glow: #b9e95e;
 
     transform: skewX(-8deg) rotate(-1.8deg) translateY(1px)
 }
-
 
 
 .lounge-card {
@@ -970,28 +853,16 @@ img {
 }
 
 
-
 .event-card>img {
-
     position: absolute;
-
-    z-index: -2;
-
+    z-index: 0;
     inset: 0;
-
     width: 100%;
-
     height: 100%;
-
     object-fit: cover;
-
     opacity: 1;
-
-    transform: skewX(9deg) scale(1.13);
-
-    transition: filter .3s ease
+    transform: none;
 }
-
 
 
 .event-card::before {
@@ -1012,7 +883,6 @@ img {
 
         linear-gradient(180deg, rgba(0, 0, 0, .02) 5%, rgba(0, 0, 0, .16) 35%, rgba(0, 0, 0, .92) 100%)
 }
-
 
 
 .event-card::after {
@@ -1037,7 +907,6 @@ img {
 }
 
 
-
 .event-overlay {
 
     position: absolute;
@@ -1051,7 +920,6 @@ img {
 }
 
 
-
 .event-content {
 
     position: absolute;
@@ -1062,7 +930,6 @@ img {
     transform-origin: left bottom;
 
 }
-
 
 
 .event-icon {
@@ -1080,7 +947,6 @@ img {
 }
 
 
-
 .event-content h2 {
 
     font-family: 'Cormorant Garamond', serif;
@@ -1096,7 +962,6 @@ img {
 }
 
 
-
 .event-content p {
 
     margin-top: 7px;
@@ -1108,7 +973,6 @@ img {
     line-height: 1.35;
 
 }
-
 
 
 .event-arrow {
@@ -1146,11 +1010,7 @@ img {
 }
 
 
-
 /* Hover: light and border only; cards do not move */
-
-
-
 
 
 .wedding-card:hover {
@@ -1159,12 +1019,10 @@ img {
 }
 
 
-
 .corporate-card:hover {
 
     transform: skewX(-8deg) rotate(1.8deg) translateY(-2px)
 }
-
 
 
 .private-card:hover {
@@ -1173,12 +1031,10 @@ img {
 }
 
 
-
 .lounge-card:hover {
 
     transform: skewX(-10deg) rotate(1.8deg) translateY(-1px)
 }
-
 
 
 .event-card:hover .event-arrow {
@@ -1189,14 +1045,12 @@ img {
 }
 
 
-
 .event-card:focus-within {
 
     outline: 2px solid var(--gold-light);
 
     outline-offset: 3px
 }
-
 
 
 @media (min-width: 1500px) {
@@ -1210,7 +1064,6 @@ img {
 }
 
 
-
 @media (max-width: 1250px) {
 
     .event-card {
@@ -1218,7 +1071,6 @@ img {
         height: 190px;
 
     }
-
 
 
     .event-content {
@@ -1230,7 +1082,6 @@ img {
     }
 
 
-
     .event-content h2 {
 
         font-size: 18px;
@@ -1238,13 +1089,11 @@ img {
     }
 
 
-
     .event-content p {
 
         font-size: 10px;
 
     }
-
 
 
     .event-arrow {
@@ -1260,11 +1109,7 @@ img {
 }
 
 
-
-
-
 /* LOWER CONTENT */
-
 
 
 .lower-section {
@@ -1282,7 +1127,6 @@ img {
 }
 
 
-
 .section-eyebrow {
 
     margin-bottom: 14px;
@@ -1296,7 +1140,6 @@ img {
     text-transform: uppercase;
 
 }
-
 
 
 .about-section {
@@ -1316,7 +1159,6 @@ img {
 }
 
 
-
 .about-image-wrap {
 
     position: relative;
@@ -1332,7 +1174,6 @@ img {
     background: radial-gradient(ellipse at 48% 30%, rgba(0, 217, 149, .32), transparent 48%), radial-gradient(ellipse at 72% 70%, rgba(232, 203, 121, .12), transparent 35%), linear-gradient(160deg, #102a1c, #020805);
 
 }
-
 
 
 .about-image-wrap::before {
@@ -1352,7 +1193,6 @@ img {
 }
 
 
-
 .about-image-wrap::after {
 
     content: "";
@@ -1364,7 +1204,6 @@ img {
     background: linear-gradient(90deg, transparent 45%, var(--bg) 100%), linear-gradient(0deg, rgba(0, 0, 0, .45), transparent 55%);
 
 }
-
 
 
 .about-image {
@@ -1379,7 +1218,6 @@ img {
 }
 
 
-
 .about-content {
 
     position: relative;
@@ -1389,7 +1227,6 @@ img {
     padding: 4px 0 12px;
 
 }
-
 
 
 .about-content h2 {
@@ -1407,7 +1244,6 @@ img {
 }
 
 
-
 .about-description {
 
     margin-top: 17px;
@@ -1419,7 +1255,6 @@ img {
     line-height: 1.65;
 
 }
-
 
 
 .about-signature {
@@ -1437,7 +1272,6 @@ img {
     transform-origin: left center;
 
 }
-
 
 
 .outline-button {
@@ -1469,7 +1303,6 @@ img {
 }
 
 
-
 .outline-button:hover {
 
     border-color: var(--emerald-bright);
@@ -1477,7 +1310,6 @@ img {
     box-shadow: 0 0 18px rgba(0, 217, 149, .16);
 
 }
-
 
 
 .outline-button span {
@@ -1489,17 +1321,11 @@ img {
 }
 
 
-
-
-
-
-
 .media-section {
 
     min-width: 0;
 
 }
-
 
 
 .media-gallery {
@@ -1513,7 +1339,6 @@ img {
     height: 205px;
 
 }
-
 
 
 .featured-video,
@@ -1537,7 +1362,6 @@ img {
 }
 
 
-
 .featured-video::before,
 
 .media-thumb::before {
@@ -1553,8 +1377,6 @@ img {
     background: linear-gradient(145deg, rgba(0, 255, 170, .07), transparent 45%, rgba(0, 0, 0, .35));
 
 }
-
-
 
 
 .featured-video img,
@@ -1593,7 +1415,6 @@ img {
 }
 
 
-
 .featured-video:hover img,
 
 .media-thumb:hover img {
@@ -1601,7 +1422,6 @@ img {
     transform: scale(1.06);
 
 }
-
 
 
 .video-play {
@@ -1631,7 +1451,6 @@ img {
     transform: translate(-50%, -50%);
 
 }
-
 
 
 .media-thumbnails {
@@ -1665,7 +1484,6 @@ img {
 }
 
 
-
 .gallery-pagination {
 
     display: flex;
@@ -1683,17 +1501,11 @@ img {
 }
 
 
-
 .gallery-pagination .current {
 
     color: var(--gold-light);
 
 }
-
-
-
-
-
 
 
 .reviews-section {
@@ -1709,7 +1521,6 @@ img {
 }
 
 
-
 .review-content {
 
     position: relative;
@@ -1717,7 +1528,6 @@ img {
     padding-left: 25px;
 
 }
-
 
 
 .quote-mark {
@@ -1737,7 +1547,6 @@ img {
 }
 
 
-
 .review-content blockquote {
 
     color: #d5d9d3;
@@ -1747,7 +1556,6 @@ img {
     line-height: 1.7;
 
 }
-
 
 
 .review-author {
@@ -1761,7 +1569,6 @@ img {
     margin-top: 16px;
 
 }
-
 
 
 .review-author img {
@@ -1781,13 +1588,11 @@ img {
 }
 
 
-
 .review-author p {
 
     font-size: 10px;
 
 }
-
 
 
 .review-author span {
@@ -1803,7 +1608,6 @@ img {
 }
 
 
-
 .review-pagination {
 
     display: flex;
@@ -1817,7 +1621,6 @@ img {
     margin-top: 17px;
 
 }
-
 
 
 .review-pagination button {
@@ -1841,7 +1644,6 @@ img {
 }
 
 
-
 .review-dot {
 
     width: 6px;
@@ -1855,13 +1657,11 @@ img {
 }
 
 
-
 .review-dot.active {
 
     background: var(--gold-light);
 
 }
-
 
 
 .book-button {
@@ -1897,13 +1697,11 @@ img {
 }
 
 
-
 .book-button:hover {
 
     box-shadow: 0 0 25px rgba(232, 203, 121, .25);
 
 }
-
 
 
 .book-arrow {
@@ -1925,7 +1723,6 @@ img {
     font-size: 18px;
 
 }
-
 
 
 .site-footer {
@@ -1953,13 +1750,7 @@ img {
 }
 
 
-
-
-
-
-
 @media (min-width: 1500px) {
-
 
 
     .hero {
@@ -1971,13 +1762,11 @@ img {
     }
 
 
-
     .hero-artist {
 
         right: 245px;
 
     }
-
 
 
     .hero::after {
@@ -1987,13 +1776,11 @@ img {
     }
 
 
-
     .event-card {
 
         height: 210px;
 
     }
-
 
 
     .lower-section {
@@ -2003,7 +1790,6 @@ img {
     }
 
 
-
     .media-gallery {
 
         height: 225px;
@@ -2011,13 +1797,10 @@ img {
     }
 
 
-
 }
 
 
-
 @media (max-width: 1250px) {
-
 
 
     .site-shell {
@@ -2029,7 +1812,6 @@ img {
     }
 
 
-
     .hero {
 
         grid-template-columns: 155px minmax(0, 1fr) 220px;
@@ -2037,7 +1819,6 @@ img {
         min-height: 400px;
 
     }
-
 
 
     .hero-artist {
@@ -2049,7 +1830,6 @@ img {
     }
 
 
-
     .hero::after {
 
         left: 135px;
@@ -2059,7 +1839,6 @@ img {
     }
 
 
-
     .hero-copy h1 {
 
         font-size: 34px;
@@ -2067,13 +1846,11 @@ img {
     }
 
 
-
     .event-card {
 
         height: 170px;
 
     }
-
 
 
     .event-content {
@@ -2085,7 +1862,6 @@ img {
     }
 
 
-
     .event-content h2 {
 
         font-size: 18px;
@@ -2093,13 +1869,11 @@ img {
     }
 
 
-
     .event-content p {
 
         font-size: 10px;
 
     }
-
 
 
     .event-arrow {
@@ -2113,7 +1887,6 @@ img {
     }
 
 
-
     .lower-section {
 
         gap: 18px;
@@ -2121,13 +1894,10 @@ img {
     }
 
 
-
 }
 
 
-
 @media (prefers-reduced-motion: reduce) {
-
 
 
     \*,
@@ -2147,11 +1917,7 @@ img {
     }
 
 
-
 }
-
-
-
 
 
 /* ==========================================================
@@ -2161,25 +1927,6 @@ img {
    Fixed geometry: no movement on hover.
 
    ========================================================== */
-
-
-
-.events-section {
-
-    display: grid;
-
-    grid-template-columns: 1.02fr 1fr 1fr 1.04fr;
-
-    gap: 13px;
-
-    align-items: center;
-
-    margin-bottom: 27px;
-
-    perspective: none;
-
-}
-
 
 
 .event-card {
@@ -2214,7 +1961,6 @@ img {
 }
 
 
-
 /* A distinct outline and silhouette for every card */
 
 .wedding-card {
@@ -2223,12 +1969,10 @@ img {
 }
 
 
-
 .corporate-card {
 
     --card-glow: #00e6a0
 }
-
 
 
 .private-card {
@@ -2237,12 +1981,10 @@ img {
 }
 
 
-
 .lounge-card {
 
     --card-glow: #e8cb79
 }
-
 
 
 /* Glow edge follows the custom clipped silhouette */
@@ -2267,7 +2009,6 @@ img {
 }
 
 
-
 .event-card::before {
 
     content: "";
@@ -2288,30 +2029,6 @@ img {
 }
 
 
-
-.event-card>img {
-
-    position: absolute;
-
-    z-index: 0;
-
-    inset: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    opacity: 0;
-
-    transform: none;
-
-    transition: filter .28s ease
-}
-
-
-
 .event-overlay {
 
     position: absolute;
@@ -2325,7 +2042,6 @@ img {
     background: linear-gradient(110deg, rgba(0, 30, 18, .12), transparent 65%);
 
 }
-
 
 
 .event-content {
@@ -2345,7 +2061,6 @@ img {
 }
 
 
-
 .event-icon {
 
     display: block;
@@ -2359,7 +2074,6 @@ img {
     line-height: 1;
 
 }
-
 
 
 .event-content h2 {
@@ -2377,7 +2091,6 @@ img {
 }
 
 
-
 .event-content p {
 
     margin-top: 7px;
@@ -2389,7 +2102,6 @@ img {
     line-height: 1.35;
 
 }
-
 
 
 .event-arrow {
@@ -2427,7 +2139,6 @@ img {
 }
 
 
-
 /* Hover changes only light and border treatment; shape stays fixed */
 
 .event-card:hover {
@@ -2436,12 +2147,10 @@ img {
 }
 
 
-
 .event-card:hover>img {
 
     transform: none
 }
-
 
 
 .event-card:hover .event-arrow,
@@ -2454,14 +2163,12 @@ img {
 }
 
 
-
 .event-card:focus-visible {
 
     outline: 2px solid var(--gold-light);
 
     outline-offset: 3px
 }
-
 
 
 @media (min-width: 1500px) {
@@ -2475,7 +2182,6 @@ img {
 }
 
 
-
 @media (max-width: 1250px) {
 
     .event-card {
@@ -2483,7 +2189,6 @@ img {
         height: 185px;
 
     }
-
 
 
     .event-content {
@@ -2495,7 +2200,6 @@ img {
     }
 
 
-
     .event-content h2 {
 
         font-size: 18px;
@@ -2503,13 +2207,11 @@ img {
     }
 
 
-
     .event-content p {
 
         font-size: 10px;
 
     }
-
 
 
     .event-arrow {
@@ -2527,11 +2229,6 @@ img {
 }
 
 
-
-
-
-
-
 /* ==========================================================
 
    FINAL EVENT CARD GEOMETRY — match the supplied reference
@@ -2539,27 +2236,6 @@ img {
    Card 1 = 3; card 2 = 4 mirrored. No movement on hover.
 
    ========================================================== */
-
-
-
-.events-section {
-
-    display: grid;
-
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
-    gap: 12px;
-
-    align-items: center;
-
-    margin: 0 0 27px;
-
-    padding: 4px 2px 7px;
-
-    perspective: none;
-
-}
-
 
 
 .event-card {
@@ -2594,7 +2270,6 @@ img {
 }
 
 
-
 /* Matching silhouettes: cards 1 and 3 share a shape; 2 and 4 mirror it. */
 
 .wedding-card,
@@ -2605,35 +2280,12 @@ img {
 }
 
 
-
 .corporate-card,
 
 .lounge-card {
 
     transform: skewX(-7deg) rotate(2deg)
 }
-
-
-
-.event-card>img {
-
-    position: absolute;
-
-    z-index: -2;
-
-    inset: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    opacity: 0;
-
-    transform: none
-}
-
 
 
 .event-card::before {
@@ -2656,7 +2308,6 @@ img {
 }
 
 
-
 .event-card::after {
 
     content: "";
@@ -2673,7 +2324,6 @@ img {
 }
 
 
-
 .event-overlay {
 
     position: absolute;
@@ -2687,7 +2337,6 @@ img {
     background: linear-gradient(110deg, rgba(0, 30, 18, .12), transparent 65%);
 
 }
-
 
 
 /* Counter-transform the card text so it remains visually upright. */
@@ -2707,7 +2356,6 @@ img {
 }
 
 
-
 .wedding-card .event-content,
 
 .private-card .event-content {
@@ -2716,14 +2364,12 @@ img {
 }
 
 
-
 .corporate-card .event-content,
 
 .lounge-card .event-content {
 
     transform: rotate(-2deg) skewX(7deg)
 }
-
 
 
 .event-icon {
@@ -2741,7 +2387,6 @@ img {
 }
 
 
-
 .event-content h2 {
 
     font-family: 'Cormorant Garamond', serif;
@@ -2757,7 +2402,6 @@ img {
 }
 
 
-
 .event-content p {
 
     margin-top: 7px;
@@ -2769,7 +2413,6 @@ img {
     line-height: 1.35;
 
 }
-
 
 
 .event-arrow {
@@ -2805,13 +2448,11 @@ img {
 }
 
 
-
 .wedding-card .event-arrow,
 .private-card .event-arrow {
 
     transform: skewX(1deg)
 }
-
 
 
 .corporate-card .event-arrow,
@@ -2822,11 +2463,7 @@ img {
 }
 
 
-
 /* Hover only changes lighting; the card's position and shape stay fixed. */
-
-
-
 
 
 .wedding-card:hover,
@@ -2837,7 +2474,6 @@ img {
 }
 
 
-
 .corporate-card:hover,
 
 .lounge-card:hover {
@@ -2846,12 +2482,10 @@ img {
 }
 
 
-
 .corporate-card {
 
     --card-glow: #00e6a0
 }
-
 
 
 .private-card {
@@ -2860,14 +2494,12 @@ img {
 }
 
 
-
 .wedding-card,
 
 .lounge-card {
 
     --card-glow: #e8cb79
 }
-
 
 
 .event-card:hover .event-arrow,
@@ -2880,14 +2512,12 @@ img {
 }
 
 
-
 .event-card:focus-visible {
 
     outline: 2px solid var(--gold-light);
 
     outline-offset: 3px
 }
-
 
 
 @media (min-width: 1500px) {
@@ -2901,7 +2531,6 @@ img {
 }
 
 
-
 @media (max-width: 1250px) {
 
     .events-section {
@@ -2911,13 +2540,11 @@ img {
     }
 
 
-
     .event-card {
 
         height: 190px;
 
     }
-
 
 
     .event-content {
@@ -2929,7 +2556,6 @@ img {
     }
 
 
-
     .event-content h2 {
 
         font-size: 18px;
@@ -2937,13 +2563,11 @@ img {
     }
 
 
-
     .event-content p {
 
         font-size: 10px;
 
     }
-
 
 
     .event-arrow {
@@ -2961,11 +2585,6 @@ img {
 }
 
 
-
-
-
-
-
 /* ==========================================================
 
    FINAL EVENT CARD SHAPES — rounded, asymmetrical, fixed
@@ -2973,23 +2592,6 @@ img {
    Cards 1 & 3 share one silhouette; 2 & 4 mirror it.
 
    ========================================================== */
-
-
-
-.events-section {
-
-    display: grid;
-
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
-    gap: 13px;
-
-    align-items: center;
-
-    overflow: visible;
-
-}
-
 
 
 .event-card {
@@ -3026,7 +2628,6 @@ img {
 }
 
 
-
 /* First and third cards: same geometry */
 
 .wedding-card,
@@ -3037,7 +2638,6 @@ img {
 
     transform: skewX(-7deg) rotate(-1.2deg)
 }
-
 
 
 /* Second and fourth cards: mirrored geometry */
@@ -3052,40 +2652,16 @@ img {
 }
 
 
-
 .private-card {
 
     --card-glow: #b9e95e
 }
 
 
-
 .lounge-card {
 
     --card-glow: #e8cb79
 }
-
-
-
-.event-card>img {
-
-    position: absolute;
-
-    z-index: 0;
-
-    inset: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    opacity: 1;
-
-    transform: none
-}
-
 
 
 .event-card::before {
@@ -3108,7 +2684,6 @@ img {
 }
 
 
-
 .event-card::after {
 
     content: "";
@@ -3125,7 +2700,6 @@ img {
 
     background: transparent
 }
-
 
 
 .event-content {
@@ -3145,14 +2719,12 @@ img {
 }
 
 
-
 .corporate-card .event-content,
 
 .lounge-card .event-content {
 
     transform: skewX(-7deg)
 }
-
 
 
 .event-icon {
@@ -3170,7 +2742,6 @@ img {
 }
 
 
-
 .event-content h2 {
 
     font-family: 'Cormorant Garamond', serif;
@@ -3186,7 +2757,6 @@ img {
 }
 
 
-
 .event-content p {
 
     margin-top: 7px;
@@ -3198,7 +2768,6 @@ img {
     line-height: 1.35;
 
 }
-
 
 
 .event-arrow {
@@ -3222,7 +2791,6 @@ img {
 }
 
 
-
 .corporate-card .event-arrow,
 
 .lounge-card .event-arrow {
@@ -3231,11 +2799,7 @@ img {
 }
 
 
-
 /* Hover never moves or reshapes the cards */
-
-
-
 
 
 .wedding-card:hover,
@@ -3246,13 +2810,11 @@ img {
 }
 
 
-
 .corporate-card:hover,
 
 .lounge-card:hover {
     transform: skewX(7deg) rotate(1.2deg)
 }
-
 
 
 .event-card:hover .event-arrow,
@@ -3263,12 +2825,10 @@ img {
 }
 
 
-
 .event-card:focus-visible {
     outline: 2px solid var(--gold-light);
     outline-offset: 3px
 }
-
 
 
 @media (max-width: 1250px) {
@@ -3300,9 +2860,7 @@ img {
 }
 
 
-
 @media (prefers-reduced-motion: reduce) {
-
 
 
     .event-card,
@@ -3316,17 +2874,9 @@ img {
 }
 
 
-
-
-
-
-
-
-
 /* FORMA PERSONALIZATA — primul card WEDDINGS */
 
 .wedding-card {
-
 
 
     width: 95%;
@@ -3337,7 +2887,6 @@ img {
 }
 
 
-
 /* Pastram textul drept */
 
 .wedding-card .event-content {
@@ -3346,16 +2895,12 @@ img {
 }
 
 
-
 /* Pastram forma fixa la hover */
 
 .wedding-card:hover {
 
     transform: none !important
 }
-
-
-
 
 
 /* CARD 3 — ACEEAȘI FORMĂ CA WEDDINGS */
@@ -3370,12 +2915,10 @@ img {
 }
 
 
-
 .private-card .event-content {
 
     transform: none !important
 }
-
 
 
 .private-card:hover {
@@ -3384,61 +2927,7 @@ img {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* EXTENSIE ASIMETRICĂ HERO — sub cardurile evenimentelor */
-
-.hero-artist {
-
-    bottom: -245px;
-
-    border-radius: 0 0 45px 45px;
-
-
-
-    clip-path: polygon(0 0,
-
-            100% 0,
-
-            100% 78%,
-
-            97% 82%,
-
-            92% 84%,
-
-            85% 84%,
-
-            75% 82%,
-
-            65% 79%,
-
-            55% 77%,
-
-            45% 76%,
-
-            35% 78%,
-
-            25% 85%,
-
-            15% 93%,
-
-            0 100%);
-
-}
-
+/* Extensia asimetrică a hero-ului este integrată în regula principală .hero-artist. */
 
 
 /* CORPORATE EVENTS — CARD ÎNCLINAT */
@@ -3454,25 +2943,12 @@ img {
 /* RESTAURANTS & LOUNGE — CARD ÎN OGLINDĂ */
 
 
-
-
-
-
-
 /* CONTUR LUMINOS — EVENT CARDS */
 
 /* CONTUR LUMINOS — EVENT CARDS */
-
-
-
 
 
 /* Păstrăm intensitatea conturului și la hover */
-
-
-
-
-
 
 
 /* ==========================================================
@@ -3494,30 +2970,7 @@ img {
    ========================================================== */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Păstrează glow-ul pe conturul decupat */
-
-
-
-
-
-
-
-
-
-
 
 
 /* ==========================================================
@@ -3535,7 +2988,6 @@ img {
 }
 
 
-
 .events-section .event-card:focus-visible {
     outline: none
 }
@@ -3546,9 +2998,6 @@ img {
    The inner shape clips the contents; its filter creates the glow.
    ========================================================== */
 
-.events-section {
-    overflow: visible !important;
-}
 
 .events-section .event-card {
     position: relative !important;
@@ -3575,12 +3024,6 @@ img {
 }
 
 /* Exact rounded asymmetric silhouettes retained from the latest CSS. */
-
-
-
-
-
-
 
 
 .events-section .event-card-shape::before {
@@ -3632,122 +3075,9 @@ img {
 }
 
 
-
-
-
 .events-section .event-card:focus-visible {
     outline: none !important
 }
-
-
-
-/* ==========================================================
-   FINAL GLOW FIX v2 — clip BOTH wrapper and inner artwork
-   The wrapper's alpha silhouette now matches the custom card shape,
-   so its drop-shadow follows the real polygon rather than a rectangle.
-   ========================================================== */
-.events-section .event-card {
-    position: relative !important;
-    overflow: visible !important;
-    background: transparent !important
-}
-
-/* The outer wrapper gets the same silhouette as its inner artwork.
-   Filter is applied AFTER this clip, so the shadow traces that outline. */
-
-
-
-
-.events-section .event-card-shape {
-    position: absolute !important;
-    inset: 0 !important;
-    overflow: hidden !important
-}
-
-.events-section .event-card:hover {
-    background: transparent !important
-}
-
-
-
-
-/* ==========================================================
-   DEFINITIVE EVENT CARD GLOW
-   Outer article: no clipping; casts shadow from child silhouette.
-   Inner shape: clips artwork only.
-   Keep this block as the final CSS rules.
-   ========================================================== */
-
-.events-section {
-    overflow: visible !important;
-}
-
-.events-section .event-card {
-    position: relative !important;
-    overflow: visible !important;
-    background: transparent !important
-}
-
-/* The inner child alone defines the visible card silhouette. */
-.events-section .event-card-shape {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    overflow: hidden !important
-}
-
-/* First and third cards: shared rounded asymmetric silhouette. */
-
-
-/* Second card. */
-
-
-/* Fourth card. */
-
-
-/* Hover glow stays on the unclipped outer article. */
-.events-section .event-card:hover {
-    background: transparent !important
-}
-
-/* Remove any old outline pseudo-elements from the outer wrapper. */
-.events-section .event-card::before,
-.events-section .event-card::after {
-    content: none !important;
-    display: none !important
-}
-
-
-/* FINAL CASCADE FIX:
-   These selectors intentionally outrank the older card-specific
-   clip-path declarations on the OUTER article elements.
-   The polygons remain only on .event-card-shape.
-*/
-.events-section .event-card.event-card,
-.events-section .event-card.event-card.wedding-card,
-.events-section .event-card.event-card.corporate-card,
-.events-section .event-card.event-card.private-card,
-.events-section .event-card.event-card.lounge-card {
-    overflow: visible !important
-}
-
-/* Keep the outer article responsible for the glow. */
-
-
-/* Keep the actual silhouettes exclusively on the inner shape. */
-
-
-
-
-
-
-@media (prefers-reduced-motion: reduce) {
-    .events-section .event-card.event-card {
-        transition: none !important;
-    }
-}
-
 
 
 /* ==========================================================
@@ -3877,7 +3207,6 @@ img {
 }
 
 
-
 /* MODERN EVENT ARROWS */
 
 .events-section .event-card .event-arrow {
@@ -3914,14 +3243,11 @@ img {
 }
 
 
-
 @media (prefers-reduced-motion: reduce) {
     .events-section .event-arrow-icon {
         transition: none;
     }
 }
-
-
 
 
 /* Elimină chenarul la focus, păstrează iluminarea săgeții */
@@ -3930,9 +3256,6 @@ img {
     outline: none !important;
     outline-offset: 0 !important
 }
-
-
-
 
 
 /* ==================================================
@@ -4038,45 +3361,6 @@ img {
 
 
 /* ==========================================================
-   EVENT CARD LIGHTING — clean, lightweight replacement
-   Only controls illumination. Card geometry and layout remain untouched.
-   ========================================================== */
-
-.events-section .event-card,
-.events-section .event-card:hover,
-.events-section .event-card:focus-visible {
-    transition: none !important
-}
-
-/* The clipped inner shape carries the visible outline. */
-
-
-/* Rest state: a restrained outline in each card's own accent colour. */
-.events-section .event-card .event-card-shape::after {
-    content: "" !important;
-    position: absolute !important;
-    z-index: 5 !important;
-    inset: 0 !important;
-    pointer-events: none !important;
-    opacity: .28 !important;
-    transition: opacity .10s ease !important
-}
-
-/* Hover: the outline brightens; no animated filters or large shadows. */
-.events-section .event-card:hover .event-card-shape::after,
-.events-section .event-card:focus-visible .event-card-shape::after,
-.events-section .event-card:focus-within .event-card-shape::after {
-    opacity: .95 !important
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .events-section .event-card .event-card-shape::after {
-        transition: none !important;
-    }
-}
-
-
-/* ==========================================================
    EVENT CARDS — ONE SHAPE SYSTEM ONLY
    The inner .event-card-shape owns all four silhouettes.
    The outer links have no clip-path or glow.
@@ -4175,7 +3459,6 @@ img {
     box-shadow: none !important;
     transition: opacity .10s ease !important;
 }
-
 
 
 .events-section .event-card:hover .event-card-shape::after,
@@ -4277,8 +3560,6 @@ img {
 }
 
 
-
-
 /* =========================================
    GREEN VIOLIN — BOOKING MODAL
 ========================================= */
@@ -4311,6 +3592,8 @@ img {
     width: min(650px, 100%);
     max-height: 76vh;
     overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 217, 149, .65) transparent;
     padding: 28px 38px;
     color: var(--white);
     background:
@@ -4489,14 +3772,8 @@ body.booking-open {
 
 
 /* =========================================
-   GREEN VIOLIN — BOOKING MODAL DETAILS
+   GREEN VIOLIN — BOOKING MODAL SCROLLBAR
 ========================================= */
-
-/* Scrollbar personalizat */
-.booking-panel {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 217, 149, .65) transparent;
-}
 
 .booking-panel::-webkit-scrollbar {
     width: 6px;

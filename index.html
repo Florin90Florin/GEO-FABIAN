@@ -441,187 +441,231 @@
     </main>
 
     <script>
-        const storyToggle = document.getElementById("storyToggle");
-        const storyPanel = document.getElementById("storyPanel");
-        const storyButtonText = storyToggle.querySelector(".story-button-text");
+        (() => {
+            "use strict";
 
-        storyToggle.addEventListener("click", () => {
-            const isOpen = storyToggle.getAttribute("aria-expanded") === "true";
+            // READ MY STORY
+            const storyToggle = document.getElementById("storyToggle");
+            const storyPanel = document.getElementById("storyPanel");
+            const storyButtonText = storyToggle?.querySelector(".story-button-text");
 
-            storyToggle.setAttribute("aria-expanded", String(!isOpen));
-            storyPanel.setAttribute("aria-hidden", String(isOpen));
+            if (storyToggle && storyPanel && storyButtonText) {
+                storyToggle.addEventListener("click", () => {
+                    const isOpen = storyToggle.getAttribute("aria-expanded") === "true";
 
-            storyButtonText.textContent = isOpen
-                ? "Read my story"
-                : "Close story";
+                    storyToggle.setAttribute("aria-expanded", String(!isOpen));
+                    storyPanel.setAttribute("aria-hidden", String(isOpen));
+                    storyButtonText.textContent = isOpen ? "Read my story" : "Close story";
 
-            if (isOpen) {
-                storyPanel.classList.remove("is-open");
-                storyPanel.classList.add("is-closing");
+                    if (isOpen) {
+                        storyPanel.classList.remove("is-open");
+                        storyPanel.classList.add("is-closing");
 
-                const finishClosing = (event) => {
-                    if (event.target !== storyPanel ||
-                        event.animationName !== "storyFadeOut") {
-                        return;
+                        const finishClosing = (event) => {
+                            if (event.target !== storyPanel || event.animationName !== "storyFadeOut") return;
+                            storyPanel.classList.remove("is-closing");
+                            storyPanel.removeEventListener("animationend", finishClosing);
+                        };
+
+                        storyPanel.addEventListener("animationend", finishClosing);
+                    } else {
+                        storyPanel.classList.remove("is-closing");
+                        storyPanel.classList.add("is-open");
                     }
+                });
+            }
 
-                    storyPanel.classList.remove("is-closing");
-                    storyPanel.removeEventListener("animationend", finishClosing);
+            // VIDEO & MOMENTS
+            const mediaButtons = [...document.querySelectorAll(".media-thumb")];
+            const featuredVideo = document.getElementById("featuredMediaVideo");
+            const featuredImage = document.getElementById("featuredMediaImage");
+            const mediaPlayIcon = document.getElementById("mediaPlayIcon");
+            let imageSlideshow = null;
+
+            function stopCurrentMedia() {
+                if (imageSlideshow !== null) {
+                    window.clearInterval(imageSlideshow);
+                    imageSlideshow = null;
+                }
+
+                if (featuredVideo) {
+                    featuredVideo.pause();
+                    featuredVideo.removeAttribute("src");
+                    featuredVideo.load();
+                    featuredVideo.classList.remove("is-visible");
+                }
+
+                if (featuredImage) {
+                    featuredImage.onload = null;
+                    featuredImage.onerror = null;
+                    featuredImage.removeAttribute("src");
+                    featuredImage.classList.remove("is-visible");
+                }
+
+                if (mediaPlayIcon) mediaPlayIcon.style.display = "none";
+            }
+
+            function showImages(images) {
+                if (!featuredImage || images.length === 0) return;
+
+                let currentImage = 0;
+
+                const displayImage = () => {
+                    featuredImage.classList.remove("is-visible");
+                    featuredImage.onload = () => featuredImage.classList.add("is-visible");
+                    featuredImage.onerror = () => featuredImage.classList.remove("is-visible");
+                    featuredImage.src = images[currentImage];
+                    currentImage = (currentImage + 1) % images.length;
                 };
 
-                storyPanel.addEventListener("animationend", finishClosing);
-
-            } else {
-                storyPanel.classList.remove("is-closing");
-                storyPanel.classList.add("is-open");
-            }
-        });
-
-
-        // VIDEO & MOMENTS - SELECTAREA OFERTELOR
-
-        const mediaButtons = document.querySelectorAll(".media-thumb");
-        const featuredVideo = document.getElementById("featuredMediaVideo");
-        const featuredImage = document.getElementById("featuredMediaImage");
-        const mediaPlayIcon = document.getElementById("mediaPlayIcon");
-
-        let imageSlideshow = null;
-
-        function stopCurrentMedia() {
-            clearInterval(imageSlideshow);
-            imageSlideshow = null;
-
-            featuredVideo.pause();
-            featuredVideo.removeAttribute("src");
-            featuredVideo.load();
-            featuredVideo.classList.remove("is-visible");
-
-            featuredImage.removeAttribute("src");
-            featuredImage.classList.remove("is-visible");
-
-            mediaPlayIcon.style.display = "none";
-        }
-
-        function showImages(images) {
-            let currentImage = 0;
-
-            function displayImage() {
-                featuredImage.classList.remove("is-visible");
-
-                featuredImage.onload = () => {
-                    featuredImage.classList.add("is-visible");
-                };
-
-                featuredImage.src = images[currentImage];
-                currentImage = (currentImage + 1) % images.length;
+                displayImage();
+                if (images.length > 1) imageSlideshow = window.setInterval(displayImage, 3000);
             }
 
-            displayImage();
+            function selectMedia(button) {
+                stopCurrentMedia();
 
-            if (images.length > 1) {
-                imageSlideshow = setInterval(displayImage, 3000);
-            }
-        }
-
-        function selectMedia(button) {
-            stopCurrentMedia();
-
-            mediaButtons.forEach(item => {
-                const isActive = item === button;
-
-                item.classList.toggle("active", isActive);
-                item.setAttribute("aria-pressed", String(isActive));
-            });
-
-            const videoSource = button.dataset.video.trim();
-            const imageSources = button.dataset.images
-                .split("|")
-                .map(path => path.trim())
-                .filter(Boolean);
-
-            if (videoSource) {
-                featuredVideo.src = videoSource;
-                featuredVideo.classList.add("is-visible");
-                featuredVideo.load();
-
-                featuredVideo.play().catch(() => {
-                    mediaPlayIcon.style.display = "grid";
+                mediaButtons.forEach(item => {
+                    const isActive = item === button;
+                    item.classList.toggle("active", isActive);
+                    item.setAttribute("aria-pressed", String(isActive));
                 });
 
-            } else if (imageSources.length > 0) {
-                showImages(imageSources);
+                const videoSource = (button.dataset.video || "").trim();
+                const imageSources = (button.dataset.images || "")
+                    .split("|")
+                    .map(path => path.trim())
+                    .filter(Boolean);
+
+                if (videoSource && featuredVideo) {
+                    featuredVideo.src = videoSource;
+                    featuredVideo.load();
+                    featuredVideo.classList.add("is-visible");
+
+                    const playRequest = featuredVideo.play();
+                    if (playRequest && typeof playRequest.catch === "function") {
+                        playRequest.catch(() => {
+                            if (mediaPlayIcon) mediaPlayIcon.style.display = "grid";
+                        });
+                    }
+                } else if (imageSources.length > 0) {
+                    showImages(imageSources);
+                }
+                // Sursele media se completează în data-video / data-images când materialele sunt pregătite.
             }
-        }
 
-        mediaButtons.forEach(button => {
-            button.addEventListener("click", () => selectMedia(button));
-        });
+            mediaButtons.forEach(button => {
+                button.addEventListener("click", () => selectMedia(button));
+            });
 
+            // BOOKING MODAL
+            const bookingModal = document.getElementById("bookingModal");
+            const bookingButton = document.getElementById("contact");
+            const bookingPanel = bookingModal?.querySelector(".booking-panel");
+            const bookingForm = document.getElementById("bookingForm");
+            const closeBookingButtons = [...document.querySelectorAll("[data-close-booking]")];
+            let bookingOpener = null;
 
-        // BOOKING MODAL
-        const bookingModal = document.getElementById("bookingModal");
-        const bookingButton = document.getElementById("contact");
-        const bookingForm = document.getElementById("bookingForm");
+            function openBookingModal() {
+                if (!bookingModal || !bookingPanel) return;
 
-        function openBookingModal() {
-            bookingModal.classList.add("is-open");
-            bookingModal.setAttribute("aria-hidden", "false");
-            document.body.classList.add("booking-open");
-        }
-
-        function closeBookingModal() {
-            bookingModal.classList.remove("is-open");
-            bookingModal.setAttribute("aria-hidden", "true");
-            document.body.classList.remove("booking-open");
-        }
-
-        bookingButton.addEventListener("click", openBookingModal);
-
-        document.querySelectorAll("[data-close-booking]").forEach(button => {
-            button.addEventListener("click", closeBookingModal);
-        });
-
-        document.addEventListener("keydown", event => {
-            if (event.key === "Escape" && bookingModal.classList.contains("is-open")) {
-                closeBookingModal();
+                bookingOpener = document.activeElement;
+                bookingModal.classList.add("is-open");
+                bookingModal.setAttribute("aria-hidden", "false");
+                document.body.classList.add("booking-open");
+                bookingPanel.querySelector(".booking-close")?.focus();
             }
-        });
 
-        // TRIMITERE SOLICITARE PE WHATSAPP
-        bookingForm.addEventListener("submit", function (event) {
-            event.preventDefault();
+            function closeBookingModal() {
+                if (!bookingModal) return;
 
-            const tipEveniment = document.getElementById("eventType").value;
-            const data = document.getElementById("eventDate").value;
-            const formula = document.getElementById("musicFormat").value;
-            const durata = document.getElementById("performanceDuration").value;
-            const locatie = document.getElementById("eventLocation").value;
-            const ora = document.getElementById("eventTime").value;
-            const detalii = document.getElementById("bookingDetails").value;
+                bookingModal.classList.remove("is-open");
+                bookingModal.setAttribute("aria-hidden", "true");
+                document.body.classList.remove("booking-open");
+                bookingOpener?.focus();
+                bookingOpener = null;
+            }
 
-            const mesaj = `
-SOLICITARE DE REZERVARE — GREEN VIOLIN
+            bookingButton?.addEventListener("click", openBookingModal);
+            closeBookingButtons.forEach(button => button.addEventListener("click", closeBookingModal));
 
-Tipul evenimentului: ${tipEveniment}
-Data: ${data}
-Formula muzicală: ${formula}
-Durata programului: ${durata}
-Locația: ${locatie}
-Ora de începere: ${ora || "Nespecificată"}
+            document.addEventListener("keydown", event => {
+                if (!bookingModal?.classList.contains("is-open")) return;
 
-Detalii suplimentare:
-${detalii || "Nu au fost adăugate detalii."}
+                if (event.key === "Escape") {
+                    event.preventDefault();
+                    closeBookingModal();
+                    return;
+                }
 
-Doresc să verific disponibilitatea și să primesc o ofertă.
-            `;
+                if (event.key !== "Tab" || !bookingPanel) return;
 
-            const numarWhatsApp = "07XXXXXX";
-            const linkWhatsApp = `https://wa.me/${numarWhatsApp}?text=${encodeURIComponent(mesaj)}`;
+                const focusable = [...bookingPanel.querySelectorAll(
+                    'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                )].filter(element => element.getClientRects().length > 0);
 
-            window.open(linkWhatsApp, "_blank");
-        });
+                if (focusable.length === 0) {
+                    event.preventDefault();
+                    bookingPanel.focus();
+                    return;
+                }
 
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
 
+                if (event.shiftKey && document.activeElement === first) {
+                    event.preventDefault();
+                    last.focus();
+                } else if (!event.shiftKey && document.activeElement === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
+            });
+
+            // TRIMITERE SOLICITARE PE WHATSAPP
+            bookingForm?.addEventListener("submit", event => {
+                event.preventDefault();
+
+                if (!bookingForm.reportValidity()) return;
+
+                const getValue = id => document.getElementById(id)?.value.trim() || "";
+                const tipEveniment = getValue("eventType");
+                const data = getValue("eventDate");
+                const formula = getValue("musicFormat");
+                const durata = getValue("performanceDuration");
+                const locatie = getValue("eventLocation");
+                const ora = getValue("eventTime");
+                const detalii = getValue("bookingDetails");
+
+                const mesaj = [
+                    "SOLICITARE DE REZERVARE — GREEN VIOLIN",
+                    "",
+                    `Tipul evenimentului: ${tipEveniment}`,
+                    `Data: ${data}`,
+                    `Formula muzicală: ${formula}`,
+                    `Durata programului: ${durata}`,
+                    `Locația: ${locatie}`,
+                    `Ora de începere: ${ora || "Nespecificată"}`,
+                    "",
+                    "Detalii suplimentare:",
+                    detalii || "Nu au fost adăugate detalii.",
+                    "",
+                    "Doresc să verific disponibilitatea și să primesc o ofertă."
+                ].join("\n");
+
+                // Înlocuiește placeholderul cu numărul real în format internațional, fără + sau spații.
+                const numarWhatsApp = "07XXXXXX";
+                const numarValid = /^\d{10,15}$/.test(numarWhatsApp);
+
+                if (!numarValid) {
+                    window.alert("Numărul WhatsApp nu este configurat încă. Adaugă numărul real înainte de publicarea site-ului.");
+                    return;
+                }
+
+                const linkWhatsApp = `https://wa.me/${numarWhatsApp}?text=${encodeURIComponent(mesaj)}`;
+                window.open(linkWhatsApp, "_blank", "noopener,noreferrer");
+            });
+        })();
     </script>
 
 
