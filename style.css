@@ -299,7 +299,7 @@ img {
 
 .brand-logo {
     display: block;
-    width: 330px;
+    width: 110px;
     height: auto;
     position: relative;
     z-index: 1000;
@@ -311,6 +311,8 @@ img {
 
 
 .brand-name {
+
+    margin-top: 20px;
 
     color: var(--gold-light);
 
@@ -3686,4 +3688,12 @@ body.booking-open {
     background: linear-gradient(180deg,
             #e8cb79,
             #00d995);
+}
+
+
+
+
+/* Elimină highlight-ul albastru la atingere pe mobil */
+* {
+    -webkit-tap-highlight-color: transparent;
 }
