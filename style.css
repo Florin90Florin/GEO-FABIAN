@@ -287,6 +287,7 @@ img {
     top: 0;
 
     left: 10px;
+    right: 10px;
 
 }
 
@@ -297,12 +298,22 @@ img {
     width: max-content;
 }
 
+.brand-link::before {
+    content: "";
+    display: block;
+    width: 110px;
+    aspect-ratio: 2012 / 666;
+    flex: 0 0 auto;
+}
+
 .brand-logo {
     display: block;
     width: 110px;
     height: auto;
-    position: relative;
-    left: min(calc(100vw - 220px), calc(var(--shell-width) - 200px));
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
     z-index: 1000;
     filter:
     drop-shadow(1px 1px 1px rgba(0, 0, 0, .95))
