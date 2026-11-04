@@ -286,7 +286,7 @@ img {
 
     top: 0;
 
-    right: 10px;
+    left: 10px;
 
 }
 
@@ -302,6 +302,7 @@ img {
     width: 110px;
     height: auto;
     position: relative;
+    left: min(calc(100vw - 220px), calc(var(--shell-width) - 200px));
     z-index: 1000;
     filter:
     drop-shadow(1px 1px 1px rgba(0, 0, 0, .95))
