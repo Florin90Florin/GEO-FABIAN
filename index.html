@@ -25,7 +25,7 @@
             <header class="brand">
                 <a href="#home" class="brand-link" aria-label="Green Violin - Acasă">
                     <img src="images/logo.png" alt="Green Violin Artist by Geo Fabian" class="brand-logo">
-                     <span class="brand-name">Geo Fabian</span>
+                    <span class="brand-name">Geo Fabian</span>
                 </a>
             </header>
 
@@ -77,7 +77,7 @@
             </div>
 
             <div class="hero-copy">
-                <p class="hero-eyebrow">GREEN VIOLIN EXPERIENCE</p>
+
 
                 <h1>
                     Violin for<br>
@@ -90,7 +90,7 @@
                     Real Emotions
                 </p>
 
-                <a href="#media" class="showreel-button">
+                <a href="#media" class="showreel-button" id="showreel-open">
                     <span class="play-icon" aria-hidden="true">▶</span>
                     <span>Play showreel</span>
                 </a>
@@ -101,6 +101,29 @@
                 <span class="scroll-line"></span>
                 <span class="scroll-dot"></span>
             </a>
+
+
+            <!-- SHOWREEL VIDEO MODAL -->
+            <div class="showreel-modal" id="showreel-modal" aria-hidden="true">
+                <div class="showreel-overlay"></div>
+
+                <div class="showreel-modal-content" role="dialog" aria-modal="true" aria-label="Geo Fabian Showreel">
+
+                    <button class="showreel-close" id="showreel-close" aria-label="Închide">
+                        &times;
+                    </button>
+
+                    <div class="showreel-video-container" id="showreel-video">
+                        <div class="showreel-placeholder">
+                            <span class="play-icon">▶</span>
+                            <p>GEO FABIAN — SHOWREEL</p>
+                            <small>VIDEO COMING SOON</small>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
 
         </section>
 
@@ -693,6 +716,72 @@
         })();
     </script>
 
+
+    <!-- SHOWREEL VIDEO MODAL -->
+    <div class="showreel-modal" id="showreelModal" aria-hidden="true">
+        <div class="showreel-overlay"></div>
+
+        <div class="showreel-window" role="dialog" aria-modal="true" aria-label="Green Violin Showreel">
+            <button class="showreel-close" type="button" aria-label="Închide">&times;</button>
+
+            <div class="showreel-video">
+                <iframe id="showreelFrame" src="" title="Geo Fabian - Showreel"
+                    allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
+                </iframe>
+
+                <div class="showreel-placeholder" id="showreelPlaceholder">
+                    <span>GREEN VIOLIN EXPERIENCE</span>
+                    <p>Showreel video – în curând</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (() => {
+            const modal = document.getElementById("showreelModal");
+            const openButton = document.getElementById("showreel-open");
+            const closeButton = modal?.querySelector(".showreel-close");
+            const overlay = modal?.querySelector(".showreel-overlay");
+            const frame = document.getElementById("showreelFrame");
+            const placeholder = document.getElementById("showreelPlaceholder");
+
+            // Adăugăm aici ID-ul videoclipului YouTube când îl avem.
+            const youtubeVideoId = "";
+
+            if (!modal || !openButton || !closeButton || !overlay || !frame) return;
+
+            function openShowreel(event) {
+                event.preventDefault();
+
+                if (youtubeVideoId) {
+                    frame.src = `https://www.youtube-nocookie.com/embed/${youtubeVideoId}?autoplay=1&rel=0`;
+                    placeholder.style.display = "none";
+                }
+
+                modal.classList.add("active");
+                modal.setAttribute("aria-hidden", "false");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeShowreel() {
+                modal.classList.remove("active");
+                modal.setAttribute("aria-hidden", "true");
+                frame.src = "";
+                document.body.style.overflow = "";
+            }
+
+            openButton.addEventListener("click", openShowreel);
+            closeButton.addEventListener("click", closeShowreel);
+            overlay.addEventListener("click", closeShowreel);
+
+            document.addEventListener("keydown", event => {
+                if (event.key === "Escape" && modal.classList.contains("active")) {
+                    closeShowreel();
+                }
+            });
+        })();
+    </script>
 
 
 </body>
