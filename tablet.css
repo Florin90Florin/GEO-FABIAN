@@ -1,0 +1,119 @@
+/* Proportional desktop canvas for tablet viewports. */
+@media (min-width: 681px) and (max-width: 1250.5px) {
+  :root {
+    --tablet-scale: calc(100vw / 1680px);
+  }
+
+  body {
+    min-width: 0;
+  }
+
+  .site-shell,
+  .wedding-page .site-shell {
+    width: 1636px;
+    max-width: none;
+    margin: 12px 22px;
+    padding: 26px 25px 55px;
+    zoom: var(--tablet-scale);
+  }
+
+  .hero,
+  .wedding-hero {
+    grid-template-columns: 205px minmax(0, 1fr) 340px;
+    min-height: 470px;
+  }
+
+  .wedding-hero {
+    min-height: 440px;
+  }
+
+  .hero-artist {
+    left: 145px;
+    right: 245px;
+  }
+
+  .hero::after,
+  .wedding-hero::after {
+    left: -100px;
+    right: 245px;
+  }
+
+  .wedding-hero::after {
+    background: linear-gradient(
+      90deg,
+      rgba(2, 8, 5, .96) 0%,
+      rgba(2, 8, 5, .75) 22%,
+      rgba(2, 8, 5, .35) 38%,
+      transparent 55%,
+      rgba(2, 8, 5, .04) 66%,
+      rgba(2, 8, 5, .96) 100%
+    );
+  }
+
+  .hero-copy,
+  .wedding-hero .hero-copy {
+    transform: none;
+  }
+
+  .hero-copy h1 {
+    font-size: 49px;
+  }
+
+  .wedding-hero .hero-copy h1 {
+    font-size: 56px;
+  }
+
+  .events-section {
+    gap: 13px;
+  }
+
+  .event-card {
+    height: 245px;
+  }
+
+  .events-section .event-card {
+    --content-base-x: 22px;
+    --content-base-y: 24px;
+  }
+
+  .events-section .event-card .event-content h2 {
+    font-size: 22px;
+  }
+
+  .events-section .event-card .event-content p {
+    font-size: 11px;
+  }
+
+  .events-section .event-card .event-arrow {
+    right: 17px;
+    bottom: 17px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .lower-section {
+    gap: 25px;
+    min-height: 315px;
+  }
+
+  .media-gallery {
+    height: 225px;
+  }
+
+  .wedding-page .wedding-intro {
+    gap: 42px;
+  }
+
+  .wedding-page .wedding-gallery-grid {
+    height: 280px;
+  }
+
+  .wedding-page .wedding-intro-heading h2,
+  .wedding-page .wedding-section-heading h2 {
+    font-size: 47px;
+  }
+
+  .wedding-page .wedding-booking h2 {
+    font-size: 40px;
+  }
+}
