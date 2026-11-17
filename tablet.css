@@ -39,6 +39,8 @@
   }
 
   .hero::after {
+    left: 145px;
+    right: 245px;
     top: -12px;
   }
 
