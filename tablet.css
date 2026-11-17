@@ -38,6 +38,10 @@
     right: 245px;
   }
 
+  .hero::after {
+    top: -12px;
+  }
+
   .wedding-hero::after {
     background: linear-gradient(
       90deg,
