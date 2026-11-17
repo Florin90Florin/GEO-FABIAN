@@ -257,27 +257,6 @@ img {
 }
 
 
-.hero::after {
-
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: -245px;
-    left: -100px;
-    right: 215px;
-    pointer-events: none;
-
-    background: linear-gradient(90deg,
-            rgba(2, 8, 5, .96) 0%,
-            rgba(2, 8, 5, .75) 22%,
-            rgba(2, 8, 5, .35) 38%,
-            transparent 55%,
-            rgba(2, 8, 5, .04) 66%,
-            rgba(2, 8, 5, .96) 100%);
-}
-
-
 .brand {
 
     position: absolute;
@@ -1793,13 +1772,6 @@ img {
     }
 
 
-    .hero::after {
-
-        right: 245px;
-
-    }
-
-
     .event-card {
 
         height: 210px;
@@ -1848,15 +1820,6 @@ img {
     .hero-artist {
 
         left: 115px;
-
-        right: 195px;
-
-    }
-
-
-    .hero::after {
-
-        left: 135px;
 
         right: 195px;
 

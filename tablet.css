@@ -32,39 +32,6 @@
     right: 245px;
   }
 
-  .hero::after,
-  .wedding-hero::after {
-    left: -100px;
-    right: 245px;
-  }
-
-  .hero::after {
-    left: 145px;
-    right: 245px;
-    top: -12px;
-    background: linear-gradient(
-      90deg,
-      rgba(2, 8, 5, .30) 0%,
-      rgba(2, 8, 5, .20) 22%,
-      rgba(2, 8, 5, .08) 38%,
-      transparent 55%,
-      rgba(2, 8, 5, .04) 66%,
-      rgba(2, 8, 5, .96) 100%
-    );
-  }
-
-  .wedding-hero::after {
-    background: linear-gradient(
-      90deg,
-      rgba(2, 8, 5, .96) 0%,
-      rgba(2, 8, 5, .75) 22%,
-      rgba(2, 8, 5, .35) 38%,
-      transparent 55%,
-      rgba(2, 8, 5, .04) 66%,
-      rgba(2, 8, 5, .96) 100%
-    );
-  }
-
   .hero-copy,
   .wedding-hero .hero-copy {
     transform: none;

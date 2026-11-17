@@ -391,19 +391,6 @@
     opacity: 1;
   }
 
-.wedding-hero::after {
-    left: 0;
-    right: 0;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        transparent 30%,
-        rgba(2, 8, 5, .12) 42%,
-        rgba(2, 8, 5, .38) 65%,
-        rgba(2, 8, 5, .82) 100%
-    );
-}
-
   .wedding-hero .hero-copy {
     align-self: flex-end;
     width: 75%;
