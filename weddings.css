@@ -307,7 +307,7 @@
   color: var(--gold-light);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 680px) {
   .wedding-page .site-shell {
     width: calc(100% - 24px);
     padding: 20px 16px 42px;

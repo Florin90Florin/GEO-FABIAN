@@ -1,102 +1,613 @@
-/* Proportional desktop canvas for tablet viewports. */
-@media (min-width: 681px) and (max-width: 1250.5px) {
-  :root {
-    --tablet-scale: calc(100vw / 1680px);
+/* =========================================================
+   GEO FABIAN — GREEN VIOLIN
+   TABLET RESPONSIVE
+   Portrait: 681px – 899px
+   Landscape: 900px – 1366px
+
+   Desktop styles remain in style.css.
+   Phone styles remain in the individual CSS files.
+   No zoom scaling.
+   ========================================================= */
+
+
+/* =========================================================
+   TABLET LANDSCAPE
+   ========================================================= */
+
+@media (min-width: 900px) and (max-width: 1366px) {
+
+  html,
+  body {
+    max-width: 100%;
   }
 
   body {
     min-width: 0;
+    overflow-x: hidden;
   }
 
   .site-shell,
   .wedding-page .site-shell {
-    width: 1636px;
-    max-width: none;
-    margin: 12px 22px;
-    padding: 26px 25px 55px;
-    zoom: var(--tablet-scale);
+    width: calc(100% - 32px);
+    max-width: 1800px;
+    margin: 10px auto;
+    padding: 22px 22px 42px;
   }
+
+
+  /* HERO */
 
   .hero,
   .wedding-hero {
-    grid-template-columns: 205px minmax(0, 1fr) 340px;
-    min-height: 470px;
+    grid-template-columns: 160px minmax(0, 1fr) 270px;
+    min-height: 420px;
+    gap: 10px;
   }
 
-  .wedding-hero {
-    min-height: 440px;
-  }
-
-  .hero-artist {
-    top: 0;
-    left: 145px;
-    right: 245px;
+  .hero-artist,
+  .wedding-hero .hero-artist {
+    left: 135px;
+    right: 250px;
   }
 
   .hero-copy,
   .wedding-hero .hero-copy {
+    grid-column: 3;
+    transform: translateX(-20px);
+    padding: 28px 0 20px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(35px, 3.5vw, 46px);
+  }
+
+  .wedding-hero .hero-copy h1 {
+    font-size: clamp(36px, 3.7vw, 49px);
+  }
+
+  .brand-name {
+    font-size: 55px;
+  }
+
+  .side-navigation {
+    gap: 9px;
+  }
+
+  .nav-link {
+    font-size: 9px;
+    gap: 7px;
+  }
+
+  .scroll-indicator {
+    right: 2px;
+  }
+
+
+  /* EVENT CARDS */
+
+  .events-section {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 11px;
+  }
+
+  .event-card {
+    height: 220px;
+  }
+
+  .events-section .event-card .event-content {
+    left: 16px;
+    bottom: 15px;
+  }
+
+  .events-section .event-card .event-content h2 {
+    font-size: 19px;
+  }
+
+  .events-section .event-card .event-content p {
+    font-size: 10px;
+  }
+
+  .events-section .event-card .event-arrow {
+    right: 13px;
+    bottom: 13px;
+    width: 32px;
+    height: 32px;
+  }
+
+
+  /* MAIN PAGE — LOWER SECTION */
+
+  .lower-section {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    min-height: 340px;
+    height: auto;
+  }
+
+
+  
+
+  .media-gallery {
+    height: 210px;
+  }
+
+
+  /* SECONDARY PAGES */
+
+  .wedding-page .wedding-hero {
+    min-height: 420px;
+    margin-bottom: 20px;
+  }
+
+  .wedding-page .wedding-intro {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    padding: 20px 3%;
+  }
+
+  .wedding-page .wedding-intro-heading h2 {
+    font-size: clamp(30px, 3.2vw, 42px);
+  }
+
+  .wedding-page .wedding-intro-copy {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  .wedding-page .wedding-booking {
+    grid-template-columns: .8fr 1.2fr;
+    gap: 25px;
+    padding: 22px 3%;
+  }
+
+  .wedding-page .booking-panel {
+    padding: 12px 0 12px 20px;
+  }
+
+  .wedding-page .wedding-gallery-grid {
+    height: 240px;
+  }
+
+  .wedding-page .wedding-moments,
+  .wedding-page .package-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET PORTRAIT
+   ========================================================= */
+
+@media (min-width: 681px) and (max-width: 899px) {
+
+  html,
+  body {
+    max-width: 100%;
+  }
+
+  body {
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .site-shell,
+  .wedding-page .site-shell {
+    width: calc(100% - 20px);
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 20px 16px 38px;
+    border-radius: 24px;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    grid-template-columns: 112px minmax(0, 1fr) 245px;
+    min-height: 400px;
+    gap: 6px;
+  }
+
+  .wedding-hero {
+    grid-template-columns: 112px minmax(0, 1fr) 195px;
+    min-height: 400px;
+    gap: 6px;
+  }
+
+  .hero-artist,
+  .wedding-hero .hero-artist {
+    top: -10px;
+    left: 112px;
+    right: 195px;
+    bottom: -220px;
+  }
+
+  .hero-copy,
+  .wedding-hero .hero-copy {
+    grid-column: 3;
+    width: calc(100% + 25px);
+    min-width: 0;
+    margin-left: -25px;
+    padding: 25px 0 18px;
     transform: none;
   }
 
   .hero-copy h1 {
-    font-size: 49px;
+    font-size: clamp(30px, 4.4vw, 38px);
+    line-height: .94;
   }
 
   .wedding-hero .hero-copy h1 {
-    font-size: 56px;
+    font-size: clamp(30px, 4.4vw, 38px);
   }
 
+  .hero-eyebrow {
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+  }
+
+  .hero-signature {
+    margin-top: 14px;
+    font-size: 31px;
+  }
+
+  .showreel-button {
+    gap: 7px;
+    margin-top: 18px;
+    padding: 5px 11px 5px 5px;
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .play-icon {
+    flex-basis: 25px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .brand {
+    left: 5px;
+    right: 5px;
+  }
+
+  .brand-name {
+    font-size: 45px;
+  }
+
+  .brand-subtitle {
+    margin-top: 6px;
+    padding-left: 28px;
+    font-size: 7px;
+    letter-spacing: 2.5px;
+  }
+
+  .brand-link::before {
+    width: 85px;
+  }
+
+  .side-navigation {
+    gap: 7px;
+    padding-top: 28px;
+  }
+
+  .nav-link {
+    grid-template-columns: 22px 1fr;
+    gap: 5px;
+    min-height: 22px;
+    font-size: 8px;
+    letter-spacing: .8px;
+  }
+
+  .nav-number {
+    width: 21px;
+    height: 21px;
+    font-size: 8px;
+  }
+
+  .sound-control {
+    bottom: 5px;
+    gap: 7px;
+    font-size: 7px;
+  }
+
+  .sound-icon {
+    flex-basis: 27px;
+    width: 27px;
+    height: 27px;
+    font-size: 14px;
+  }
+
+  .scroll-indicator {
+    right: 0;
+    font-size: 7px;
+  }
+
+
+  /* EVENT CARDS — FOUR ON ONE ROW */
+
   .events-section {
-    gap: 13px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 7px;
+    margin-bottom: 20px;
+    padding: 4px 1px 6px;
   }
 
   .event-card {
-    height: 245px;
+    height: 195px;
   }
 
-  .events-section .event-card {
-    --content-base-x: 22px;
-    --content-base-y: 24px;
+  .events-section .event-card .event-content {
+    left: 11px;
+    bottom: 12px;
+  }
+
+  .event-icon {
+    margin-bottom: 5px;
+    font-size: 18px;
   }
 
   .events-section .event-card .event-content h2 {
-    font-size: 22px;
+    font-size: 16px;
+    line-height: .98;
   }
 
   .events-section .event-card .event-content p {
-    font-size: 11px;
+    margin-top: 5px;
+    font-size: 8px;
+    line-height: 1.3;
   }
 
   .events-section .event-card .event-arrow {
-    right: 17px;
-    bottom: 17px;
-    width: 36px;
-    height: 36px;
+    right: 9px;
+    bottom: 10px;
+    width: 27px;
+    height: 27px;
+    font-size: 15px;
   }
 
-  .lower-section {
-    gap: 25px;
-    min-height: 315px;
-  }
+
+  /* MAIN PAGE — ABOUT / GALLERY / REVIEWS */
+
+ .lower-section {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.6fr);
+    grid-template-rows: auto auto;
+    gap: 16px 12px;
+    min-height: 390px;
+    height: auto;
+    align-items: start;
+}
+
+/* ABOUT ME — TABLET PORTRAIT */
+
+.about-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    align-items: start;
+    overflow: visible;
+    position: relative;
+    z-index: 20;
+}
+
+.about-content {
+    display: contents;
+}
+
+.about-content > .section-eyebrow {
+    grid-row: 1;
+    margin-bottom: 8px;
+}
+
+.about-content h2 {
+    grid-row: 2;
+    margin-bottom: 12px;
+}
+
+.about-image-wrap {
+    grid-row: 3;
+    width: 100%;
+    min-height: 0;
+    height: 190px;
+    margin-bottom: 12px;
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-description {
+    grid-row: 4;
+    margin-top: 0;
+}
+
+.about-signature {
+    grid-row: 5;
+}
+
+.about-content .outline-button {
+    grid-row: 6;
+}
+
+.story-panel {
+    position: static;
+    grid-row: 7;
+    top: auto;
+    left: auto;
+    width: 100%;
+    min-width: 0;
+    margin-top: 12px;
+    z-index: auto;
+}
+
+.about-section {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.media-section {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+}
+
+.reviews-section {
+    grid-column: 2;
+    grid-row: 2;
+    min-width: 0;
+}
+
+
+
 
   .media-gallery {
-    height: 225px;
+    height: 180px;
   }
+
+
+  /* SECONDARY PAGES — HERO */
+
+  .wedding-page .wedding-hero {
+    min-height: 400px;
+    margin-bottom: 16px;
+  }
+
+  .wedding-page .wedding-hero .hero-artist {
+    left: 112px;
+    right: 195px;
+  }
+
+
+  /* SECONDARY PAGES — INTRO */
 
   .wedding-page .wedding-intro {
-    gap: 42px;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 15px;
+    padding: 17px 2.5% 19px;
+    margin-bottom: 18px;
   }
 
-  .wedding-page .wedding-gallery-grid {
-    height: 280px;
+  .wedding-page .wedding-intro-heading h2 {
+    font-size: clamp(26px, 4vw, 34px);
   }
 
-  .wedding-page .wedding-intro-heading h2,
-  .wedding-page .wedding-section-heading h2 {
-    font-size: 47px;
+  .wedding-page .wedding-intro-copy {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+
+  /* SECONDARY PAGES — BOOKING */
+
+  .wedding-page .wedding-booking {
+    grid-template-columns: .8fr 1.2fr;
+    align-items: center;
+    gap: 14px;
+    padding: 17px 2%;
+    margin-bottom: 18px;
   }
 
   .wedding-page .wedding-booking h2 {
-    font-size: 40px;
+    font-size: clamp(27px, 4vw, 34px);
   }
+
+  .wedding-page .booking-copy {
+    margin-top: 9px;
+    font-size: 9px;
+    line-height: 1.6;
+  }
+
+  .wedding-page .booking-panel {
+    padding: 9px 0 9px 13px;
+  }
+
+  .wedding-page .booking-panel-title {
+    font-size: 8px;
+  }
+
+  .wedding-page .booking-form-intro {
+    margin-top: 6px;
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .wedding-page .wedding-request-form {
+    gap: 5px;
+    margin-top: 9px;
+  }
+
+  .wedding-page .wedding-request-form label {
+    margin-top: 3px;
+    font-size: 7px;
+  }
+
+  .wedding-page .wedding-request-form input,
+  .wedding-page .wedding-request-form textarea {
+    padding: 8px 9px;
+    font-size: 10px;
+  }
+
+  .wedding-page .wedding-request-form textarea {
+    min-height: 62px;
+  }
+
+  .wedding-page .wedding-request-form .booking-cta {
+    margin-top: 5px;
+    padding: 9px 11px;
+    font-size: 8px;
+  }
+
+  .wedding-page .booking-note {
+    margin-top: 6px;
+    font-size: 8px;
+  }
+
+
+  /* SECONDARY PAGES — OTHER CONTENT */
+
+  .wedding-page .wedding-gallery-grid {
+    height: 210px;
+    gap: 9px;
+  }
+
+  .wedding-page .wedding-moments,
+  .wedding-page .package-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .wedding-page .wedding-moment-card,
+  .wedding-page .package-card {
+    min-width: 0;
+    padding: 17px 14px;
+  }
+
+  .wedding-page .wedding-moment-card h3,
+  .wedding-page .package-card h3 {
+    font-size: 22px;
+  }
+
+  .wedding-page .wedding-moment-card p,
+  .wedding-page .package-description {
+    font-size: 9px;
+  }
+
+  .wedding-page .site-footer {
+    gap: 12px;
+  }
+
+
+.reviews-section .book-button {
+    margin-top: 22px;
 }
+
+
+  
+} 
